@@ -1,0 +1,268 @@
+/////////////////////////// Кнопки ////////////////////////
+
+.btn{
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    &_primary{
+        background: var(--bg-btn-primary);
+        padding: 8px 20px 8px 24px;
+        color: var(--color-hex-btn-primary);
+        box-shadow: var(--shadow-btn-primary);
+        &:hover{
+            background: var(--bg-hover-btn-primary);
+        }
+        svg use{
+            fill: var(--color-hex-btn-primary);
+        }
+    }
+    &_secondary{
+        color: var(--color-btn-secondary);
+        background: var(--bg-btn-secondary);
+        padding: 14px 22px;
+        font-weight: 700;
+        border: var(--border-btn-secondary);
+        &:hover{
+            background: var(--bg-hover-btn-secondary);
+        }
+    }
+    &__text{
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 2px;
+    }
+    &__title{
+        font-size: 15px;
+        font-weight: bold;
+    }
+    &__subtitle{
+        font-size: 12px;
+    }
+}
+
+.shake {
+    transform-origin: 0%;
+    animation: shake 5s ease-in-out infinite;
+}
+
+@keyframes shake {
+    0% { transform: rotate(0deg); }
+    3% { transform: rotate(-10deg); }
+    6% { transform: rotate(10deg); }
+    9% { transform: rotate(-10deg); }
+    12% { transform: rotate(10deg); }
+    15% { transform: rotate(0deg); }
+    100% { transform: rotate(0deg); }
+}
+
+.btn_left, .alignleft {
+  margin: 20px 30px;
+  float: left;
+  @media (max-width:1024px) {
+    margin-left: auto;
+    margin-right: auto;
+    float: none;
+    width: auto;
+    max-width: 100%;
+  }
+}
+
+.btn_right, .alignright {
+  margin: 20px 30px;
+  float: right;
+  @media (max-width:1024px) {
+    margin-left: auto;
+    margin-right: auto;
+    float: none;
+    width: auto;
+    max-width: 100%;
+  }
+}
+
+img.alignleft, img.alignright{
+    @media (max-width:1024px) {
+        display: block;
+    }
+}
+
+.btn_center, .aligncenter {
+  margin: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.btn_center {
+  width: 40%;
+  @media (max-width:1024px) {
+    width: auto;
+    max-width: 100%;
+  }
+}
+
+.btn-round{
+    padding: 8px;
+    background: var(--color-light);
+    &:hover{
+        background-color: var(--color-light-hover);
+    }
+    border-radius: 99px;
+    svg use{
+        fill: var(--fill-icon-primary);
+    }
+    &_white{
+        background-color: var(--color-opposite);
+        &:hover{
+            background-color: #D3D3D3;
+        }
+    }
+}
+
+////////////////////////// Ссылки /////////////////////////
+
+.linkSocial{
+    background-color: var(--color-opposite);
+    border-radius: 8px;
+    padding: 4px;
+    display: inline-block;
+    svg use {
+        fill: #232325;
+    }
+    &_instagram{
+        background: linear-gradient(262.93deg, #7E2BF4 0%, #ED146E 50%, #FFC90C 100%);
+    }
+    &_facebook{
+        background: rgba(8, 102, 255, 1); /* immutable */
+    }
+    &_linkedin{
+        background: rgba(10, 102, 194, 1); /* immutable */
+    }
+}
+
+.bgOverlay{
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    inset-inline-start: 0;
+    z-index: 102;
+    background-color: rgba(0, 0, 0, 0.5); /* immutable */
+    backdrop-filter: blur(5px);
+    &.active{
+        display: block;
+    }
+}
+
+//////////////////////// Поля input //////////////////////
+
+.inputText{
+    padding: 8px;
+    border-radius: 8px;
+    width: 100%;
+    border: 1px solid var(--color-light);
+}
+
+////////////////////////// Прочее /////////////////////////
+
+.table-auto-scroll{
+    overflow-x: auto;
+}
+
+.styledContent{
+    --space-bottom: 25px;
+    padding: 0 16px;
+    > p{
+        line-height: 140%;
+        margin-bottom: var(--space-bottom);
+    }
+	> h1{
+		@extend .text-big;
+        margin-bottom: var(--space-bottom);
+	}
+    > h2{
+		@extend .text-big;
+        margin-bottom: var(--space-bottom);
+	}
+	> h3{
+		@extend .text-medium;
+        margin-bottom: var(--space-bottom);
+	}
+    > h4{
+        @extend .text-small;
+		@extend .text-medium;
+        margin-bottom: var(--space-bottom);
+	}
+    > h5, h6{
+        @extend .text-micro;
+		@extend .text-medium;
+        margin-bottom: var(--space-bottom);
+	}
+	> a:not([class]) {
+        display: inline-block;
+		text-decoration: underline;
+	}
+    > a{
+        margin-bottom: var(--space-bottom);
+    }
+
+    .p-40-md3-16, .firstScreen.p-16{
+        padding-inline-end: 0 !important;
+        padding-inline-start: 0 !important;
+    }
+
+    > ul, > ol {
+        margin-bottom: var(--space-bottom);
+    }
+
+    .table-auto-scroll{
+        margin-bottom: var(--space-bottom);
+    }
+}
+
+// Общее для двух списков
+ul.list, .styledContent > ul, ol.list, .styledContent > ol{
+    li{
+		padding-inline-start: 32px;
+        display: flex;
+        align-items: center;
+        @media (max-width:#{$md3}px) {
+            padding-inline-start: 16px;
+        }
+        &:not(:last-child){
+            margin-bottom: 16px;
+        }
+	}
+}
+
+ul.list, .styledContent > ul{
+	li{
+        gap: 16px;
+		&:before{
+			content: "";
+            flex: 0 0 8px;
+			width: 8px;
+			height: 8px;
+			background: rgba(255, 0, 0, 1);
+			border-radius: 99px;
+		}
+	}
+}
+
+ol.list, .styledContent > ol{
+	counter-reset: myCounter;
+	li{
+        gap: 12px;
+		&:before{
+			content: counter(myCounter)".";
+			counter-increment: myCounter;
+			@extend .text-medium;
+		}
+	}
+}
+
+///////////////////////////////////////////////////////////

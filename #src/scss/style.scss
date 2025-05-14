@@ -1,0 +1,117 @@
+:root {
+    /* background всей страницы */
+    --bg-page: linear-gradient(180deg, #1F023D 0%, #0B0B1C 20.19%);
+    /* Немного прозрачный для header и welcome-bonus */
+    --bg-08: rgba(11, 11, 28, 0.8);
+    /* НЕ прозрачный для меню и попапов */
+    --bg-10: #0B0B1C;
+    /* НЕ прозрачный для hover у кнопки close у welcome-bonus */
+    --bg-10-hover: #22223f;
+
+    /* btn_primary */
+    --color-hex-btn-primary: #fff;
+    --bg-btn-primary: #C20054;
+    --bg-hover-btn-primary: #FF2885;
+    --shadow-btn-primary: 0 8px 50px #C20054;
+
+    /* btn_secondary */
+    --color-btn-secondary: #fff;
+    --bg-btn-secondary: transparent;
+    --bg-hover-btn-secondary: rgba(194, 0, 84, 0.2);
+    --border-btn-secondary: 2px solid #C20054;
+
+    /* border-radius для табов, основных кнопок, input */
+    --border-radius: 16px;
+
+    /* Цвета текстов и прочего */
+    --color-opposite: #ffffff;
+    --color-gray: rgba(255, 255, 255, 0.3);
+
+    /* Фоны почти всех островков / цвета некоторых border-ов */
+    --color-light: rgba(255, 255, 255, 0.05);
+    --color-light-hover: rgba(255, 255, 255, 0.1);
+
+    /* Цвет фона заголовков таблицы */
+    --bg-table-th: rgba(255, 255, 255, 0.3);
+
+    /* Цвет некоторых иконок / в футере стрелки / у круглых кнопок close */
+    --fill-icon-primary: rgba(255, 255, 255, 0.3);
+
+    /* Кнопка при клике на которую вылазит баннер "welcome bonus" */
+    --bg-btn-bonus: linear-gradient(225deg, #6D28FF 0%, #FA00FF 100%);
+    --bg-btn-bonus-hover: linear-gradient(225deg,#FA00FF 0%, #6D28FF 100%);
+
+    /* Кнопка закрытия баннера "welcome bonus". Значения обязательно в HEX. */
+    --bg-hex-btn-close-banner: #171727;
+    --bg-hover-hex-btn-close-banner: #22223f;
+
+    /* Цвета ошибок wordpress форм */
+    --color-form-border: rgba(255, 59, 48, 0.3);
+    --color-form-error: rgba(255, 59, 48, 1);
+
+    /* box-shadow у попапов */
+    --shadow: 0px 8px 48px 0px rgba(0, 0, 0, 0.5);
+
+    /* Размеры шрифтов */
+    --fz-text-default: 15px;
+    --lh-text-default: 18px;
+    --fz-text-big: 30px;
+    --lh-text-big: 36px;
+    --fz-text-medium: 20px;
+    --lh-text-medium: 24px;
+    --fz-text-small: 13px;
+    --lh-text-small: 16px;
+}
+
+@import "import/mixin"; // Подключаю миксины
+
+// ================== Подключаем шрифты ===================
+@import "import/fonts";
+// --------------------------------------------------------
+
+// ====================== Переменные ======================
+
+$minwidth: 320px;
+$mw: 1200;
+$md1: $mw;
+$md2: 992.98;
+$md3: 767.98;
+$md4: 479.98;
+$fontfamily: -apple-system, BlinkMacSystemFont, 'Helvetica', 'Arial', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Fira Sans', 'Droid Sans', sans-serif;
+
+// --------------------------------------------------------
+
+@import "import/null"; // Обнуляющие стили
+
+// ===================== Оболочка =========================
+
+.wrapper{
+	width: 100%;
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+	@media (max-width:#{$md3}px) {
+	    overflow: hidden;/* Выше 768 мы его убираем чтобы сработал 
+	    position sticky у блока .stickyBlock */
+	}
+}
+
+// --------------------------------------------------------
+
+// ================= Основная сетка =======================
+.container{
+	max-width: $mw+px; margin: 0 auto; width: 100%;
+}
+// --------------------------------------------------------
+
+// ============== Импортируем все стили ===================
+
+@import "import/base"; // Вертска переиспользуемых блоков
+@import "import/popups"; // Попапы
+@import "import/components"; // Компоненты
+@import "import/site"; // Последовательная верстка всего сайта
+@import "import/text"; // Для текста
+//@import "import/test"; // Для теста
+@import "import/сustom_wp"; // Подстраиваемся под WP
+
+// --------------------------------------------------------

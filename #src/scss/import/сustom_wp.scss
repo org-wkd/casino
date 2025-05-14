@@ -1,0 +1,175 @@
+/////////////////// Форма подписки ////////////////////
+.subscribe{
+    position: relative;
+}
+
+.subscribe .wpcf7 .subscribe__input input {
+    border-radius: 8px;
+}
+
+.subscribe .wpcf7 .subscribe__input >  p{
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.subscribe input + .wpcf7-not-valid-tip{
+    position: absolute;
+    top: 0px;
+    transform: translateY(-100%);
+    margin-top: -8px;
+    color: white;
+    background-color: var(--color-form-error);
+    box-shadow: 0 8px 48px 0 rgba(0, 0, 0, .5); /* immutable */
+    padding: 16px;
+    border-radius: 12px;
+}
+
+.subscribe .wpcf7-submit{
+    border-radius: 0 8px 8px 0;
+    padding: 12px 24px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.subscribe .wpcf7-spinner{
+    display: none !important;
+}
+
+.subscribe .wpcf7-form-control-wrap{
+    width: 100%;
+    padding-inline-end: 16px;
+}
+
+.subscribe .wpcf7-form-control-wrap input{
+    min-width: 160px;
+    width: 100%;
+    padding: 11px 8px;
+}
+
+.subscribe .wpcf7-form-control-wrap input.wpcf7-not-valid{
+    border-color: var(--color-form-border);
+    color: var(--color-form-error);
+}
+
+.subscribe .wpcf7-response-output{
+    position: absolute;
+    top: 16px;
+    inset-inline-end: 16px;
+    left: 16px;
+    transform: translateY(-100%);
+    margin: 0 !important;
+    padding: 16px !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    background: var(--bg-10);
+    border-radius: 12px;
+    color: white !important;
+}
+
+.subscribe .wpcf7{
+    width: 100%;
+}
+
+/////////// Результаты поиска + навигация //////////////
+
+.searchResult{
+  margin-bottom: 16px;
+  &__item{
+    .entry-title{
+        margin-bottom: 8px;
+        a{
+            @extend .text-big;
+            &:hover{
+              text-decoration: underline;
+            }
+        }
+    }
+    .entry-summary > *:not(:last-child){
+        margin-bottom: 8px;
+    }
+  }
+}
+  
+.navigation.posts-navigation{
+  .nav-links{
+    position: relative;
+    height: 74px;
+    padding: 16px 0;
+  }
+  .nav-previous a, .nav-next a{
+    @extend .btn, .btn_secondary;
+    position: absolute;
+    text-decoration: none;
+  }
+  .nav-next a{
+    inset-inline-end: 0;
+  }
+}
+
+///////////////////////////////////////////////////////////
+
+.wpcf7-form-control-wrap input, .wpcf7-form-control-wrap textarea{
+  @extend .inputText;
+}
+
+.wpcf7-form-control.wpcf7-submit{
+  width: fit-content;
+  @extend .btn, .btn_secondary;
+}
+
+.wpcf7-form > p{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  @media (min-width:#{$md3}px) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.wpcf7-form > p > br{
+  display: none;
+}
+
+.wpcf7-form-control-wrap .wpcf7-not-valid{
+  border-color: var(--color-form-border);
+}
+
+.wpcf7-form-control-wrap .wpcf7-not-valid-tip{
+  margin-top: 8px;
+  color: var(--color-form-error);
+}
+
+.wpcf7-response-output{
+  margin: 16px 0 0 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  color: var(--color-form-error);
+}
+
+.wp-caption-text {
+  text-align: center;
+  font-style: italic;
+  margin-top: 5px;
+}
+
+.wp-caption {
+  max-width: 100%;
+}
+
+article.searchResult__item {
+  margin-bottom: 2em;
+}
+
+.wpcf7-form > p > .wpcf7-form-control-wrap:first-of-type{
+  @media (min-width:#{$md3}px) {
+    grid-column: 1 / 3;
+  }
+}
+
+.wpcf7-spinner{
+  @media (max-width:#{$md3}px) {
+    display: none;
+  }
+}
+
+///////////////////////////////////////////////////////////

@@ -1,0 +1,39 @@
+.text-big{
+  font-size: var(--fz-text-big);
+	line-height: var(--lh-text-big);
+  font-weight: bold;
+}
+
+.text-medium{
+  font-size: var(--fz-text-medium);
+  line-height: var(--lh-text-medium);
+  font-weight: bold;
+}
+
+.text-small{
+  font-size: var(--fz-text-small);
+	line-height: var(--lh-text-small);
+}
+
+.text-micro{
+  font-size: 11px;
+  line-height: 13px;
+}
+
+.bold{
+  font-weight: bold;
+}
+
+.md3-text-small{
+  @media (max-width:#{$md3}px) {
+    font-size: var(--fz-text-small);
+	  line-height: var(--lh-text-small);
+  }
+}
+
+.md3-text-default{
+  @media (max-width:#{$md3}px) {
+    font-size: var(--fz-text-default);
+	  line-height: var(--lh-text-default);
+  }
+}
