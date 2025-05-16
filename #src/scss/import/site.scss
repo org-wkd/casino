@@ -47,13 +47,16 @@
             row-gap: 8px;
             font-weight: bold;
             a{
-                @media (max-width:#{$md3}px) {
+                @media (max-width:#{$mdMenu}px) {
                     display: inline-block;
                     padding: 16px;
                     width: 100%;
                     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+                    &:hover{
+                        background-color: rgba(255, 255, 255, 0.05);
+                    }
                 }
-                @media (min-width:#{$md3}px) {
+                @media (min-width:#{$mdMenu}px) {
                     border: 2px solid transparent;
                     border-radius: var(--border-radius);
                     display: inline-block;
@@ -64,10 +67,25 @@
                     }
                 }
             }
-            @media (max-width:#{$md3}px) {
+            @media (max-width:#{$mdMenu}px) {
                 flex-direction: column;
                 gap: 0;
                 overflow-y: auto;
+            }
+        }
+        @media (min-width:#{$md3}px) and (max-width:#{$mdMenu}px)  {
+            position: fixed;
+            z-index: 6;
+            background-color: var(--bg-color);
+            width: 300px;
+            height: 100%;
+            top: 0;
+            left: 0;
+            transform: translateX(-110%);
+            transition: ease-in 0.15s;
+            &.active{
+                transition: ease-out 0.15s;
+                transform: translateX(0);
             }
         }
         @media (max-width:#{$md3}px) {
@@ -81,7 +99,7 @@
             border-radius: 16px 16px 0 0;
             padding: 16px 0;
             transform: translateY(110%);
-            //transition: ease-in 0.15s;
+            transition: ease-in 0.15s;
             &.active{
                 transition: ease-out 0.15s;
                 transform: translateY(0);
@@ -105,9 +123,20 @@
     &__buttons {
         display: flex;
         gap: 16px;
+        @media (min-width:#{$md3}px) and (max-width:#{$mdMenu}px){
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+        }
     }
     &__burger{
+        display: none;
+        @media (max-width:#{$mdMenu}px) {
+            order: -1;
+            display: block;
+        }
         @media (max-width:#{$md3}px) {
+            order: unset;
             flex: 1 1 0;
         }
     }
@@ -116,7 +145,7 @@
         flex-direction: column;
         gap: 16px;
         padding: 16px;
-        @media (min-width:#{$md3}px) {
+        @media (min-width:#{$mdMenu}px) {
             display: none;
         }
     }
@@ -604,7 +633,8 @@
             border-top-color: var(--color-light);
             padding: 7px;
             &:hover{
-                background-color: var(--bg-color-hover);
+                background-color: var(--bg-color);
+                border: 1px solid rgba(255, 255, 255, 0.3);
             }
         }
     }

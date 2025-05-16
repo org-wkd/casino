@@ -1,0 +1,21 @@
+:root {
+    /* background всей страницы */
+    --bg-page: linear-gradient(180deg, #1F023D 0%, #0B0B1C 20.19%);
+    /* НЕ прозрачный для меню и попапов */
+    --bg-color: #0B0B1C;
+
+    /* btn_primary */
+    --color-hex-btn-primary: #fff;
+    --bg-btn-primary: #C20054;
+    --bg-hover-btn-primary: #FF2885;
+    --shadow-btn-primary: 0 8px 50px #C20054;
+
+    /* btn_secondary */
+    --color-btn-secondary: #fff;
+    --bg-btn-secondary: transparent;
+    --bg-hover-btn-secondary: rgba(194, 0, 84, 0.2);
+    --border-btn-secondary: 2px solid #C20054;
+
+    /* border-radius для табов, основных кнопок, input */
+    --border-radius: 16px;
+}
