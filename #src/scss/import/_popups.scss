@@ -21,7 +21,7 @@
 		width: 360px;
 		position: relative;
 		border-radius: 12px;
-		background-color: var(--bg-10);
+		background-color: var(--bg-color);
 		box-shadow: var(--shadow);
 		@media (max-width:#{$md3}px) {
 			width: 100%;

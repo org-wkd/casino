@@ -7,6 +7,7 @@ img/sprite/icons-sprite.svg#flame
 img/sprite/icons-sprite.svg#gift-btn
 img/sprite/icons-sprite.svg#gift
 img/sprite/icons-sprite.svg#information
+img/sprite/icons-sprite.svg#live
 img/sprite/icons-sprite.svg#menu
 img/sprite/icons-sprite.svg#people
 img/sprite/icons-sprite.svg#right-arrow

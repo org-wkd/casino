@@ -14,7 +14,6 @@ $(document).ready(function () {
     $(window).scroll(handleScroll);
 
     @@include('_popup.js');
-    @@include('_anim-items.js');
 
 /** ======================================================================== */
 /** =========== Прокрутка вверх / Плашка бонуса / Кнопка бонуса ============ */
@@ -23,25 +22,16 @@ let showBonuse = "box"; // btn | box
 // Обработчик события прокрутки
 
 function scrollForWelcomeBonus(scrollTop){
-    // Показать/Скрыть кнопку прокрутки "Вверх"
-    if (scrollTop > 500) {
-        $('.js-btnScrollToTop').show();
-    } else {
-        $('.js-btnScrollToTop').hide();
-    }
-
     // Показать/Скрыть блок бонуса
     if (scrollTop > 1000) {
         if(showBonuse === "box"){
             $('.js-welcomeBonus').show();
-            $('.js-btnScrollToTop').addClass('hasBoxWelcomeBonus');
         }else{
             $('.js-btnBonus').show();
         }
         
     } else {
         $('.js-welcomeBonus').hide();
-        $('.js-btnScrollToTop').removeClass('hasBoxWelcomeBonus');
         $('.js-btnBonus').hide();
     }
 }
@@ -49,7 +39,6 @@ function scrollForWelcomeBonus(scrollTop){
 // Закрыть плашку бонуса показать кнопку
 $('.js-btnWelcomeBonusClose').click(function(){
     $('.js-welcomeBonus').hide();
-    $('.js-btnScrollToTop').removeClass('hasBoxWelcomeBonus');
     $('.js-btnBonus').show();
     showBonuse = "btn";
 });
@@ -58,14 +47,7 @@ $('.js-btnWelcomeBonusClose').click(function(){
 $('.js-btnBonus').click(function(){
     $('.js-btnBonus').hide();
     $('.js-welcomeBonus').show();
-    $('.js-btnScrollToTop').addClass('hasBoxWelcomeBonus');
     showBonuse = "box";
-});
-
-// Прокрутить вверх
-$('.js-btnScrollToTop').click(function() {
-    $('html, body').animate({ scrollTop: 0 }, 'smooth');
-    return false;
 });
 
 /** ======================================================================== */

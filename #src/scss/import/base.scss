@@ -133,7 +133,7 @@ html :where(img[class*=wp-image-]){
 .p-40-md3-16{
 	padding: 40px 16px;
 	@media (max-width:#{$md3}px) {
-		padding: 16px;
+		padding: 24px 16px;
 	}
 }
 
