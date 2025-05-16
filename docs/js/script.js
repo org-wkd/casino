@@ -1,150 +1,161 @@
-$(document).ready(function () {
-	var w = $(window).outerWidth();
-	var h = $(window).outerHeight();
-	var isMobile = ('ontouchstart' in window);
-	const $body = $('body');
-	const BREAKPOINT_md1 = 1343;
-	const BREAKPOINT_1045 = 1044.98;
-	const BREAKPOINT_md2 = 992.98;
-	const BREAKPOINT_872 = 871.98;
-	const BREAKPOINT_md3 = 767.98;
-	const BREAKPOINT_552 = 551.98;
-	const BREAKPOINT_md4 = 479.98;
+document.addEventListener('DOMContentLoaded', function () {
+	let w = window.outerWidth;
+    const isMobile = 'ontouchstart' in window;
+    const BREAKPOINT_md3 = 767.98;
 
-    $(window).scroll(handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
 
     /** ======================================================================== */
 /** ====================== Группа скриптов для попапов ===================== */
 
-var popup = $(".popup");
-var lastOpenedPopupID = null;
+const popups = document.querySelectorAll('.popup');
+let lastOpenedPopupID = null;
 
 // Показать попапы при клике
-$(document).on("click", ".js-popup-opener", function(e){
+document.addEventListener("click", function(e) {
+	const opener = e.target.closest('.js-popup-opener');
+	if (!opener) return;
+
 	e.preventDefault();
-	if($(this).hasClass('disabled')){return false;}
-	const triggerRect = this.getBoundingClientRect();
-	openPopup($(this).data('popup-id'), triggerRect, $(this).data('add-class'));
+
+	if (opener.classList.contains('disabled')) return false;
+
+	const popupID = opener.dataset.popupId;
+	const additionalClass = opener.dataset.addClass;
+	const triggerRect = opener.getBoundingClientRect();
+
+	openPopup(popupID, triggerRect, additionalClass);
 });
 
 // Открыть попап
 function openPopup(popupID, triggerRect, additionalClass) {
-	if(lastOpenedPopupID !== popupID){
-		if(lastOpenedPopupID !== null){close_popup();}
+	if (lastOpenedPopupID !== popupID) {
+		if (lastOpenedPopupID !== null) close_popup();
 		lastOpenedPopupID = popupID;
 
-		let additionalClassName = "";
+		let additionalClassName = additionalClass ? ` ${additionalClass}` : "";
 
-		if(popupID == "problem"){initProblemPopup();}
+		const popupEl = document.getElementById(popupID);
+		if (!popupEl) return;
 
-		if(w > BREAKPOINT_md3){
-			additionalClassName = additionalClass === undefined ? "" : " "+additionalClass;
-			
-			// Определить тип попапа (Плавающий | floating) или (Центрированый | centered)
-			let type = $('#'+popupID).data('type');
-			if(type == 'centered'){
-				$(".js-popupOverlay").addClass('active');
+		if (popupID === "problem") {
+			initProblemPopup?.(); // вызывается, если есть такая функция
+		}
+
+		if (w > BREAKPOINT_md3) {
+			const type = popupEl.dataset.type;
+
+			if (type === 'centered') {
+				document.querySelector(".js-popupOverlay")?.classList.add("active");
 				bodyLock();
-			}else{
-				let modalRect = $('#'+popupID)[0].getBoundingClientRect();
-				let isRtl = $('html').attr('dir') === 'rtl';
+			} else {
+				const modalRect = popupEl.getBoundingClientRect();
+				const isRtl = document.documentElement.getAttribute("dir") === "rtl";
 
 				let top = 0, left = 0;
-				if(popupID === "language"){
-					top = additionalClass === undefined ? triggerRect.top + triggerRect.height + 8 
-						: document.documentElement.scrollTop + triggerRect.top - modalRect.height - 8;
-					left = isRtl ? triggerRect.left : triggerRect.left + triggerRect.width - 360;
+				if (popupID === "language") {
+					top = additionalClass === undefined
+						? triggerRect.top + triggerRect.height + 8
+						: window.scrollY + triggerRect.top - modalRect.height - 8;
+					left = isRtl
+						? triggerRect.left
+						: triggerRect.left + triggerRect.width - 360;
 				}
 
-				$('#'+popupID).css({
-					'top': top+"px",
-					'left': left+"px"
+				Object.assign(popupEl.style, {
+					top: `${top}px`,
+					left: `${left}px`
 				});
 			}
-		}else{
-			$(".js-popupOverlay").addClass('active');
+		} else {
+			document.querySelector(".js-popupOverlay")?.classList.add("active");
 			bodyLock();
 		}
 
-		$('#'+popupID).addClass('isOpen'+additionalClassName);
-	}else{
+		popupEl.classList.add("isOpen");
+	} else {
 		close_popup();
 	}
 }
 
-// Скрыть попапы при клике вне попапа и вне области вызова попапа
-$(document).on(isMobile ? "touchend" : "mousedown", function (e) {
-	var popupTarget = $(".js-popup-opener").has(e.target).length;
-	// Если (клик вне попапа && попап имеет класс isOpen)
-    if (popup.has(e.target).length === 0 && popup.hasClass('isOpen') && popupTarget === 0 && $(e.target).hasClass('js-popup-opener') === false){
-	    close_popup();
-	}
-});
+// Закрытие по клику вне
+document.addEventListener(isMobile ? "touchend" : "mousedown", function(e) {
+	const isClickInsidePopup = [...popups].some(popup => popup.contains(e.target));
+	const isOpener = e.target.closest('.js-popup-opener');
+	const popupIsOpen = [...popups].some(popup => popup.classList.contains('isOpen'));
 
-// Скрыть попап при нажатии на клавишу "Esc"
-$(document).on("keydown", function (e) {
-	if(e.which === 27){
+	if (!isClickInsidePopup && !isOpener && popupIsOpen) {
 		close_popup();
 	}
 });
 
-// Блокировка скролла при открытии попапа
-function bodyLock() {
-	$body.addClass('lock');
-}
+// Закрытие по Esc
+document.addEventListener("keydown", function(e) {
+	if (e.key === "Escape" || e.keyCode === 27) {
+		close_popup();
+	}
+});
 
-// Разблокировка скролла при закрытии попапа
-function bodyUnLock() {
-	$body.removeClass('lock');
-}
-
-// Закрыть popup
-function close_popup() {
-	$(".popup").removeClass('isOpen mod2');
-	$(".js-popupOverlay").removeClass('active');
-	bodyUnLock();
-	lastOpenedPopupID = null;
-}
-
-// Закрыть попапа при нажатии на кнопки "Close"
-$(document).on("click", ".js-popup-closer", function(e){
+// Закрытие по кнопке
+document.addEventListener("click", function(e) {
+	const closer = e.target.closest('.js-popup-closer');
+	if (!closer) return;
 	e.preventDefault();
 	close_popup();
-});;
+});
+
+// Блокировка/разблокировка скролла
+function bodyLock() {
+	document.body.classList.add('lock');
+}
+
+function bodyUnLock() {
+	document.body.classList.remove('lock');
+}
+
+// Закрыть попап
+function close_popup() {
+	popups.forEach(p => p.classList.remove('isOpen', 'mod2'));
+	document.querySelector(".js-popupOverlay")?.classList.remove("active");
+	bodyUnLock();
+	lastOpenedPopupID = null;
+};
 
 /** ======================================================================== */
 /** =========== Прокрутка вверх / Плашка бонуса / Кнопка бонуса ============ */
 
 let showBonuse = "box"; // btn | box
-// Обработчик события прокрутки
 
-function scrollForWelcomeBonus(scrollTop){
-    // Показать/Скрыть блок бонуса
-    if (scrollTop > 1000) {
-        if(showBonuse === "box"){
-            $('.js-welcomeBonus').show();
-        }else{
-            $('.js-btnBonus').show();
-        }
-        
-    } else {
-        $('.js-welcomeBonus').hide();
-        $('.js-btnBonus').hide();
-    }
+// Обработчик события прокрутки
+function scrollForWelcomeBonus(scrollTop) {
+	if (scrollTop > 1000) {
+		if (showBonuse === "box") {
+			document.querySelectorAll('.js-welcomeBonus').forEach(el => el.style.display = 'block');
+		} else {
+			document.querySelectorAll('.js-btnBonus').forEach(el => el.style.display = 'block');
+		}
+	} else {
+		document.querySelectorAll('.js-welcomeBonus').forEach(el => el.style.display = 'none');
+		document.querySelectorAll('.js-btnBonus').forEach(el => el.style.display = 'none');
+	}
 }
 
-// Закрыть плашку бонуса показать кнопку
-$('.js-btnWelcomeBonusClose').click(function(){
-    $('.js-welcomeBonus').hide();
-    $('.js-btnBonus').show();
-    showBonuse = "btn";
+// Закрыть плашку бонуса, показать кнопку
+document.querySelectorAll('.js-btnWelcomeBonusClose').forEach(btn => {
+	btn.addEventListener('click', () => {
+		document.querySelectorAll('.js-welcomeBonus').forEach(el => el.style.display = 'none');
+		document.querySelectorAll('.js-btnBonus').forEach(el => el.style.display = 'block');
+		showBonuse = "btn";
+	});
 });
 
-// Закрыть кнопку бонуса показать плашку
-$('.js-btnBonus').click(function(){
-    $('.js-btnBonus').hide();
-    $('.js-welcomeBonus').show();
-    showBonuse = "box";
+// Закрыть кнопку бонуса, показать плашку
+document.querySelectorAll('.js-btnBonus').forEach(btn => {
+	btn.addEventListener('click', () => {
+		document.querySelectorAll('.js-btnBonus').forEach(el => el.style.display = 'none');
+		document.querySelectorAll('.js-welcomeBonus').forEach(el => el.style.display = 'block');
+		showBonuse = "box";
+	});
 });
 
 /** ======================================================================== */
@@ -152,33 +163,54 @@ $('.js-btnBonus').click(function(){
 
 // Плашка "Cookie"
 (function () {
-    // Показать плашку через 11 сек после загрузки если еще небыла показана
-    setTimeout(function(){
-        let cookie = localStorage.getItem('cookie');
-        if(cookie == null){
-            $('.cookie').slideDown(150);
-        }
-    }, 11000);
+	// Показать плашку через 11 секунд после загрузки, если ещё не была показана
+	setTimeout(() => {
+		const cookie = localStorage.getItem('cookie');
+		if (cookie === null) {
+			const cookieBanner = document.querySelector('.cookie');
+			if (cookieBanner) {
+				cookieBanner.style.display = 'block';
+				cookieBanner.style.transition = 'all 150ms ease';
+				requestAnimationFrame(() => {
+					cookieBanner.style.opacity = '1';
+				});
+			}
+		}
+	}, 11000);
 
-    // Скрыть плашку
-    $('.js-btn-cookie').click(function(){
-        $('.cookie').slideUp(150);
-        localStorage.setItem('cookie', 'true');
-    });
-})();
-
-// Актуальный год в футере
-(function(){
-    let now = new Date;
-    let year = now.getFullYear();
-    $('.js-current-year').text(year);
+	// Скрыть плашку
+	document.querySelectorAll('.js-btn-cookie').forEach(btn => {
+		btn.addEventListener('click', () => {
+			const cookieBanner = document.querySelector('.cookie');
+			if (cookieBanner) {
+				cookieBanner.style.opacity = '0';
+				setTimeout(() => {
+					cookieBanner.style.display = 'none';
+				}, 150);
+				localStorage.setItem('cookie', 'true');
+			}
+		});
+	});
 })();
 
 // При клике, закрываем ошибки input полей выводимые попапами
-$(document).on('click', function(event) {
-    $('.subscribe .wpcf7-not-valid-tip').remove();
-    $('.subscribe .wpcf7-form-control-wrap input').removeClass('wpcf7-not-valid');
+document.addEventListener('click', function () {
+	const tips = document.querySelectorAll('.subscribe .wpcf7-not-valid-tip');
+	tips.forEach(tip => tip.remove());
+
+	const inputs = document.querySelectorAll('.subscribe .wpcf7-form-control-wrap input');
+	inputs.forEach(input => input.classList.remove('wpcf7-not-valid'));
 });
+
+// Актуальный год в футере
+(function () {
+	const now = new Date();
+	const year = now.getFullYear();
+
+	document.querySelectorAll('.js-current-year').forEach(el => {
+		el.textContent = year;
+	});
+})();
 
 // Burger menu
 (function () {
@@ -221,9 +253,9 @@ function scrollForHeader(scrollTop){
 
 // Функции зависящиеот скролла
 function handleScroll() {
-    let scrollTop = $(this).scrollTop();
-    scrollForWelcomeBonus(scrollTop);
-    scrollForHeader(scrollTop);
+	const scrollTop = window.scrollY || document.documentElement.scrollTop;
+	scrollForWelcomeBonus(scrollTop);
+	scrollForHeader(scrollTop);
 }
 handleScroll();
 

@@ -1,98 +1,115 @@
 /** ======================================================================== */
 /** ====================== Группа скриптов для попапов ===================== */
 
-var popup = $(".popup");
-var lastOpenedPopupID = null;
+const popups = document.querySelectorAll('.popup');
+let lastOpenedPopupID = null;
 
 // Показать попапы при клике
-$(document).on("click", ".js-popup-opener", function(e){
+document.addEventListener("click", function(e) {
+	const opener = e.target.closest('.js-popup-opener');
+	if (!opener) return;
+
 	e.preventDefault();
-	if($(this).hasClass('disabled')){return false;}
-	const triggerRect = this.getBoundingClientRect();
-	openPopup($(this).data('popup-id'), triggerRect, $(this).data('add-class'));
+
+	if (opener.classList.contains('disabled')) return false;
+
+	const popupID = opener.dataset.popupId;
+	const additionalClass = opener.dataset.addClass;
+	const triggerRect = opener.getBoundingClientRect();
+
+	openPopup(popupID, triggerRect, additionalClass);
 });
 
 // Открыть попап
 function openPopup(popupID, triggerRect, additionalClass) {
-	if(lastOpenedPopupID !== popupID){
-		if(lastOpenedPopupID !== null){close_popup();}
+	if (lastOpenedPopupID !== popupID) {
+		if (lastOpenedPopupID !== null) close_popup();
 		lastOpenedPopupID = popupID;
 
-		let additionalClassName = "";
+		let additionalClassName = additionalClass ? ` ${additionalClass}` : "";
 
-		if(popupID == "problem"){initProblemPopup();}
+		const popupEl = document.getElementById(popupID);
+		if (!popupEl) return;
 
-		if(w > BREAKPOINT_md3){
-			additionalClassName = additionalClass === undefined ? "" : " "+additionalClass;
-			
-			// Определить тип попапа (Плавающий | floating) или (Центрированый | centered)
-			let type = $('#'+popupID).data('type');
-			if(type == 'centered'){
-				$(".js-popupOverlay").addClass('active');
+		if (popupID === "problem") {
+			initProblemPopup?.(); // вызывается, если есть такая функция
+		}
+
+		if (w > BREAKPOINT_md3) {
+			const type = popupEl.dataset.type;
+
+			if (type === 'centered') {
+				document.querySelector(".js-popupOverlay")?.classList.add("active");
 				bodyLock();
-			}else{
-				let modalRect = $('#'+popupID)[0].getBoundingClientRect();
-				let isRtl = $('html').attr('dir') === 'rtl';
+			} else {
+				const modalRect = popupEl.getBoundingClientRect();
+				const isRtl = document.documentElement.getAttribute("dir") === "rtl";
 
 				let top = 0, left = 0;
-				if(popupID === "language"){
-					top = additionalClass === undefined ? triggerRect.top + triggerRect.height + 8 
-						: document.documentElement.scrollTop + triggerRect.top - modalRect.height - 8;
-					left = isRtl ? triggerRect.left : triggerRect.left + triggerRect.width - 360;
+				if (popupID === "language") {
+					top = additionalClass === undefined
+						? triggerRect.top + triggerRect.height + 8
+						: window.scrollY + triggerRect.top - modalRect.height - 8;
+					left = isRtl
+						? triggerRect.left
+						: triggerRect.left + triggerRect.width - 360;
 				}
 
-				$('#'+popupID).css({
-					'top': top+"px",
-					'left': left+"px"
+				Object.assign(popupEl.style, {
+					top: `${top}px`,
+					left: `${left}px`
 				});
 			}
-		}else{
-			$(".js-popupOverlay").addClass('active');
+		} else {
+			document.querySelector(".js-popupOverlay")?.classList.add("active");
 			bodyLock();
 		}
 
-		$('#'+popupID).addClass('isOpen'+additionalClassName);
-	}else{
+		popupEl.classList.add("isOpen");
+	} else {
 		close_popup();
 	}
 }
 
-// Скрыть попапы при клике вне попапа и вне области вызова попапа
-$(document).on(isMobile ? "touchend" : "mousedown", function (e) {
-	var popupTarget = $(".js-popup-opener").has(e.target).length;
-	// Если (клик вне попапа && попап имеет класс isOpen)
-    if (popup.has(e.target).length === 0 && popup.hasClass('isOpen') && popupTarget === 0 && $(e.target).hasClass('js-popup-opener') === false){
-	    close_popup();
-	}
-});
+// Закрытие по клику вне
+document.addEventListener(isMobile ? "touchend" : "mousedown", function(e) {
+	const isClickInsidePopup = [...popups].some(popup => popup.contains(e.target));
+	const isOpener = e.target.closest('.js-popup-opener');
+	const popupIsOpen = [...popups].some(popup => popup.classList.contains('isOpen'));
 
-// Скрыть попап при нажатии на клавишу "Esc"
-$(document).on("keydown", function (e) {
-	if(e.which === 27){
+	if (!isClickInsidePopup && !isOpener && popupIsOpen) {
 		close_popup();
 	}
 });
 
-// Блокировка скролла при открытии попапа
-function bodyLock() {
-	$body.addClass('lock');
-}
+// Закрытие по Esc
+document.addEventListener("keydown", function(e) {
+	if (e.key === "Escape" || e.keyCode === 27) {
+		close_popup();
+	}
+});
 
-// Разблокировка скролла при закрытии попапа
-function bodyUnLock() {
-	$body.removeClass('lock');
-}
-
-// Закрыть popup
-function close_popup() {
-	$(".popup").removeClass('isOpen mod2');
-	$(".js-popupOverlay").removeClass('active');
-	bodyUnLock();
-	lastOpenedPopupID = null;
-}
-
-// Закрыть попапа при нажатии на кнопки "Close"
-$(document).on("click", ".js-popup-closer", function(e){
+// Закрытие по кнопке
+document.addEventListener("click", function(e) {
+	const closer = e.target.closest('.js-popup-closer');
+	if (!closer) return;
 	e.preventDefault();
 	close_popup();
 });
+
+// Блокировка/разблокировка скролла
+function bodyLock() {
+	document.body.classList.add('lock');
+}
+
+function bodyUnLock() {
+	document.body.classList.remove('lock');
+}
+
+// Закрыть попап
+function close_popup() {
+	popups.forEach(p => p.classList.remove('isOpen', 'mod2'));
+	document.querySelector(".js-popupOverlay")?.classList.remove("active");
+	bodyUnLock();
+	lastOpenedPopupID = null;
+}

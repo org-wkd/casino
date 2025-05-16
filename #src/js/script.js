@@ -1,17 +1,9 @@
-$(document).ready(function () {
-	var w = $(window).outerWidth();
-	var h = $(window).outerHeight();
-	var isMobile = ('ontouchstart' in window);
-	const $body = $('body');
-	const BREAKPOINT_md1 = 1343;
-	const BREAKPOINT_1045 = 1044.98;
-	const BREAKPOINT_md2 = 992.98;
-	const BREAKPOINT_872 = 871.98;
-	const BREAKPOINT_md3 = 767.98;
-	const BREAKPOINT_552 = 551.98;
-	const BREAKPOINT_md4 = 479.98;
+document.addEventListener('DOMContentLoaded', function () {
+	let w = window.outerWidth;
+    const isMobile = 'ontouchstart' in window;
+    const BREAKPOINT_md3 = 767.98;
 
-    $(window).scroll(handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
 
     @@include('_popup.js');
 
@@ -19,35 +11,37 @@ $(document).ready(function () {
 /** =========== Прокрутка вверх / Плашка бонуса / Кнопка бонуса ============ */
 
 let showBonuse = "box"; // btn | box
-// Обработчик события прокрутки
 
-function scrollForWelcomeBonus(scrollTop){
-    // Показать/Скрыть блок бонуса
-    if (scrollTop > 1000) {
-        if(showBonuse === "box"){
-            $('.js-welcomeBonus').show();
-        }else{
-            $('.js-btnBonus').show();
-        }
-        
-    } else {
-        $('.js-welcomeBonus').hide();
-        $('.js-btnBonus').hide();
-    }
+// Обработчик события прокрутки
+function scrollForWelcomeBonus(scrollTop) {
+	if (scrollTop > 1000) {
+		if (showBonuse === "box") {
+			document.querySelectorAll('.js-welcomeBonus').forEach(el => el.style.display = 'block');
+		} else {
+			document.querySelectorAll('.js-btnBonus').forEach(el => el.style.display = 'block');
+		}
+	} else {
+		document.querySelectorAll('.js-welcomeBonus').forEach(el => el.style.display = 'none');
+		document.querySelectorAll('.js-btnBonus').forEach(el => el.style.display = 'none');
+	}
 }
 
-// Закрыть плашку бонуса показать кнопку
-$('.js-btnWelcomeBonusClose').click(function(){
-    $('.js-welcomeBonus').hide();
-    $('.js-btnBonus').show();
-    showBonuse = "btn";
+// Закрыть плашку бонуса, показать кнопку
+document.querySelectorAll('.js-btnWelcomeBonusClose').forEach(btn => {
+	btn.addEventListener('click', () => {
+		document.querySelectorAll('.js-welcomeBonus').forEach(el => el.style.display = 'none');
+		document.querySelectorAll('.js-btnBonus').forEach(el => el.style.display = 'block');
+		showBonuse = "btn";
+	});
 });
 
-// Закрыть кнопку бонуса показать плашку
-$('.js-btnBonus').click(function(){
-    $('.js-btnBonus').hide();
-    $('.js-welcomeBonus').show();
-    showBonuse = "box";
+// Закрыть кнопку бонуса, показать плашку
+document.querySelectorAll('.js-btnBonus').forEach(btn => {
+	btn.addEventListener('click', () => {
+		document.querySelectorAll('.js-btnBonus').forEach(el => el.style.display = 'none');
+		document.querySelectorAll('.js-welcomeBonus').forEach(el => el.style.display = 'block');
+		showBonuse = "box";
+	});
 });
 
 /** ======================================================================== */
@@ -55,33 +49,54 @@ $('.js-btnBonus').click(function(){
 
 // Плашка "Cookie"
 (function () {
-    // Показать плашку через 11 сек после загрузки если еще небыла показана
-    setTimeout(function(){
-        let cookie = localStorage.getItem('cookie');
-        if(cookie == null){
-            $('.cookie').slideDown(150);
-        }
-    }, 11000);
+	// Показать плашку через 11 секунд после загрузки, если ещё не была показана
+	setTimeout(() => {
+		const cookie = localStorage.getItem('cookie');
+		if (cookie === null) {
+			const cookieBanner = document.querySelector('.cookie');
+			if (cookieBanner) {
+				cookieBanner.style.display = 'block';
+				cookieBanner.style.transition = 'all 150ms ease';
+				requestAnimationFrame(() => {
+					cookieBanner.style.opacity = '1';
+				});
+			}
+		}
+	}, 11000);
 
-    // Скрыть плашку
-    $('.js-btn-cookie').click(function(){
-        $('.cookie').slideUp(150);
-        localStorage.setItem('cookie', 'true');
-    });
-})();
-
-// Актуальный год в футере
-(function(){
-    let now = new Date;
-    let year = now.getFullYear();
-    $('.js-current-year').text(year);
+	// Скрыть плашку
+	document.querySelectorAll('.js-btn-cookie').forEach(btn => {
+		btn.addEventListener('click', () => {
+			const cookieBanner = document.querySelector('.cookie');
+			if (cookieBanner) {
+				cookieBanner.style.opacity = '0';
+				setTimeout(() => {
+					cookieBanner.style.display = 'none';
+				}, 150);
+				localStorage.setItem('cookie', 'true');
+			}
+		});
+	});
 })();
 
 // При клике, закрываем ошибки input полей выводимые попапами
-$(document).on('click', function(event) {
-    $('.subscribe .wpcf7-not-valid-tip').remove();
-    $('.subscribe .wpcf7-form-control-wrap input').removeClass('wpcf7-not-valid');
+document.addEventListener('click', function () {
+	const tips = document.querySelectorAll('.subscribe .wpcf7-not-valid-tip');
+	tips.forEach(tip => tip.remove());
+
+	const inputs = document.querySelectorAll('.subscribe .wpcf7-form-control-wrap input');
+	inputs.forEach(input => input.classList.remove('wpcf7-not-valid'));
 });
+
+// Актуальный год в футере
+(function () {
+	const now = new Date();
+	const year = now.getFullYear();
+
+	document.querySelectorAll('.js-current-year').forEach(el => {
+		el.textContent = year;
+	});
+})();
 
 // Burger menu
 (function () {
@@ -124,9 +139,9 @@ function scrollForHeader(scrollTop){
 
 // Функции зависящиеот скролла
 function handleScroll() {
-    let scrollTop = $(this).scrollTop();
-    scrollForWelcomeBonus(scrollTop);
-    scrollForHeader(scrollTop);
+	const scrollTop = window.scrollY || document.documentElement.scrollTop;
+	scrollForWelcomeBonus(scrollTop);
+	scrollForHeader(scrollTop);
 }
 handleScroll();
 
