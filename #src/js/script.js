@@ -91,7 +91,7 @@ $(document).on('click', function(event) {
 
     btn.addEventListener('click', openMenu);
     overlay.addEventListener('click', closeMenu);
-    overlay.addEventListener('touchmove', closeMenu);
+    overlay.addEventListener('touchmove', closeMenu, { passive: true });
 
     function closeMenu() {
         btn.classList.remove('active');
