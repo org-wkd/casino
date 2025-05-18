@@ -638,6 +638,11 @@
             }
         }
     }
+    @media (max-width:#{$md3}px) {
+        .btn{
+            padding: 12px;
+        }
+    }
 }
 
 .cookie{

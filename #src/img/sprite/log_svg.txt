@@ -2,6 +2,7 @@ img/sprite/icons-sprite.svg#android-green
 img/sprite/icons-sprite.svg#apple
 img/sprite/icons-sprite.svg#chevron
 img/sprite/icons-sprite.svg#close
+img/sprite/icons-sprite.svg#cup
 img/sprite/icons-sprite.svg#download
 img/sprite/icons-sprite.svg#flame
 img/sprite/icons-sprite.svg#gift-btn
