@@ -1057,7 +1057,7 @@ ul.list li:before,
           flex: 0 0 8px;
   width: 8px;
   height: 8px;
-  background: rgb(255, 0, 0);
+  background: #fff;
   border-radius: 99px;
 }
 
@@ -1180,12 +1180,43 @@ ol.list li:before,
           align-items: flex-start;
 }
 
-.logo img {
+.logo__image {
   height: 24px;
   width: auto;
   -o-object-fit: contain;
      object-fit: contain;
   max-width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.logo__lang {
+  width: 24px;
+  height: 24px;
+  border-radius: 99px;
+  background-color: #fff;
+  position: relative;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 2px;
+}
+
+.logo__lang img {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  height: 100%;
+}
+
+.logo__pc .logo__image {
+  margin-right: 4px;
 }
 
 .firstScreen {
@@ -1642,6 +1673,11 @@ ol.list li:before,
   inset-inline-end: 40px;
   top: calc(50% - 20px);
   z-index: 10;
+  border: 1px solid transparent;
+}
+
+.welcomeBonus__btn:hover {
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .cookie svg use {
@@ -2053,6 +2089,10 @@ article.searchResult__item {
     padding: 16px;
   }
 
+  .logo__mob {
+    display: none;
+  }
+
   .firstScreen {
     overflow: hidden;
   }
@@ -2108,7 +2148,6 @@ article.searchResult__item {
 
   .welcomeBonus__btn:hover {
     background-color: var(--bg-color);
-    border: 1px solid rgba(255, 255, 255, 0.3);
   }
 }
 
@@ -2323,6 +2362,10 @@ position sticky у блока .stickyBlock */
             flex: 1 1 0;
   }
 
+  .logo__pc {
+    display: none;
+  }
+
   .firstScreen__body {
     grid-template-columns: 1fr;
   }
@@ -2529,6 +2572,22 @@ position sticky у блока .stickyBlock */
 
   .reviews__card {
     padding: 16px;
+  }
+}
+
+@media (max-width: 400px) {
+  .subscribe__input {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+
+  .subscribe__input input {
+    -webkit-box-flex: 0;
+        -ms-flex: 0;
+            flex: 0;
+    width: 100%;
   }
 }
 

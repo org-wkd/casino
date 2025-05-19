@@ -33,3 +33,7 @@ body{
 .btn_secondary:hover{
     background: rgba(194, 0, 84, 0.2);
 }
+
+.logo__mob .logo__lang{
+    margin-left: -0px;
+}

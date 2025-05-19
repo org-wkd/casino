@@ -154,11 +154,41 @@
 .logo{
     display: flex;
     align-items: flex-start;
-    img{
+    &__image{
         height: 24px;
         width: auto;
         object-fit: contain;
         max-width: 100%;
+        position: relative;
+        z-index: 2;
+    }
+    &__lang{
+        width: 24px;
+        height: 24px;
+        border-radius: 99px;
+        background-color: #fff;
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2px;
+        img{
+            flex: 1;
+            height: 100%;
+        }
+    }
+    &__pc{
+        @media (max-width:#{$md3}px) {
+            display: none;
+        }
+        .logo__image{
+            margin-right: 4px;
+        }
+    }
+    &__mob{
+        @media (min-width:#{$md3}px) {
+            display: none;
+        }
     }
 }
 
@@ -625,6 +655,7 @@
         inset-inline-end: 40px;
         top: calc(50% - 20px);
         z-index: 10;
+        border: 1px solid transparent;
         @media (max-width:1413px) {
             background-color: var(--bg-color);
             inset-inline-end: 16px;
@@ -634,8 +665,10 @@
             padding: 7px;
             &:hover{
                 background-color: var(--bg-color);
-                border: 1px solid rgba(255, 255, 255, 0.3);
             }
+        }
+        &:hover{
+            border-color: rgba(255, 255, 255, 0.3);
         }
     }
     @media (max-width:#{$md3}px) {
@@ -796,6 +829,13 @@
             border-radius: var(--border-radius);
             border: 1px solid var(--color-light);
             padding: 16px;
+        }
+        @media (max-width:400px) {
+            flex-direction: column;
+            input{
+                flex: 0;
+                width: 100%;
+            }
         }
     }
 }
