@@ -124,11 +124,13 @@ document.addEventListener('click', function () {
 })();
 
 // Превращает картинку data-bg-image в background-image
-(function ibg(){ 
-    document.querySelectorAll('.js-ibg').forEach(function(element) {
-        const bgUrl = element.getAttribute('data-bg-image');
-        element.style.backgroundImage = `url(${bgUrl})`;
-    });
+(function ibg(){
+	setTimeout(() => {
+		document.querySelectorAll('.js-ibg').forEach(function(element) {
+			const bgUrl = element.getAttribute('data-bg-image');
+			element.style.backgroundImage = `url(${bgUrl})`;
+		});
+	}, 0);
 })();
 
 const header = document.querySelector('.js-header');
