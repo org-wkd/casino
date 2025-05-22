@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
-	let w = window.outerWidth;
+	let w = window.innerWidth;
     const isMobile = 'ontouchstart' in window;
     const BREAKPOINT_md3 = 767.98;
+	const BREAKPOINT_md4 = 479.98;
 
     window.addEventListener('scroll', handleScroll, { passive: true });
 
@@ -240,8 +241,8 @@ document.addEventListener('click', function () {
 // Превращает картинку data-bg-image в background-image
 (function ibg(){
 	setTimeout(() => {
-		document.querySelectorAll('.js-ibg').forEach(function(element) {
-			const bgUrl = element.getAttribute('data-bg-image');
+		document.querySelectorAll('.js-ibg-fScreen').forEach(function(element) {
+			const bgUrl = element.getAttribute(w > BREAKPOINT_md4 ? 'data-bg-desc' : 'data-bg-mob');
 			element.style.backgroundImage = `url(${bgUrl})`;
 		});
 	}, 0);
@@ -260,6 +261,31 @@ function handleScroll() {
 	scrollForHeader(scrollTop);
 }
 handleScroll();
+
+// Подгрузка контента по клику на табы
+document.querySelectorAll('.tab').forEach(link => {
+  link.addEventListener('click', async (e) => {
+    e.preventDefault();
+
+	// Класс active у текущего активного таба
+	document.querySelectorAll('.tab').forEach(el => el.classList.remove('active'));
+    link.classList.add('active');
+
+	// Загрузка контента
+    const url = link.getAttribute('href');
+
+    try {
+      const res = await fetch(url);
+      if (!res.ok) throw new Error('Ошибка загрузки');
+
+      const html = await res.text();
+      document.getElementById('js-tab-content').innerHTML = html;
+    } catch (err) {
+      console.error(err);
+      document.getElementById('js-tab-content').innerHTML = '<p>Ошибка загрузки</p>';
+    }
+  });
+});
 
 /** ======================================================================== */
     

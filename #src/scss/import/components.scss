@@ -109,11 +109,29 @@ img.alignleft, img.alignright{
 
 ////////////////////////// Ссылки /////////////////////////
 
+.linksDark{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    .linkSocial{
+        flex: 1;
+        padding: 8px;
+        background-color: var(--color-light);
+        svg use {
+            fill: #fff;
+        }
+        &:hover{
+            background-color: var(--color-light-hover);
+        }
+    }
+}
+
 .linkSocial{
     background-color: var(--color-opposite);
     border-radius: 8px;
     padding: 4px;
-    display: inline-block;
+    display: inline-flex;
+    justify-content: center;
     svg use {
         fill: #232325;
     }

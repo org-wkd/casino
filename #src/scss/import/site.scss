@@ -215,15 +215,11 @@
         grid-column: 1 / 2;
         grid-row: 1;
         z-index: 2;
-        font-size: 40px;
-        line-height: 120%;
-        font-weight: 700;
         padding-top: 51px;
         padding-left: 64px;
+        @extend .text-huge;
         @media (max-width:#{$md3}px) {
             padding: 16px 16px 0 16px;
-            font-size: 28px;
-            line-height: 120%;
         }
     }
     &__text {
@@ -597,6 +593,122 @@
 
 ///////////////////////////////////////////////////////////
 
+.appDownload {
+    &__card {
+        background-color: var(--color-light);
+        position: relative;
+        border-radius: 24px;
+        display: flex;
+        @media (max-width:#{$md3}px) {
+            flex-direction: column-reverse;
+            gap: 32px;
+        }
+    }
+    &__text {
+        padding: 32px;
+        flex: 0 1 568px;
+        @media (max-width:#{$md3}px) {
+            flex: 1;
+        }
+    }
+    &__title {
+        @extend .text-huge;
+        margin-bottom: 32px;
+    }
+    &__links {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 16px;
+        svg use{
+            fill: var(--fill-icon-primary);
+        }
+        .linkApp{
+            flex: 1;
+            min-width: 145px;
+        }
+    }
+    &__image {
+        flex: 1;
+        min-width: 325px;
+        display: flex;
+        justify-content: center;
+        padding-bottom: 20px;
+    }
+}
+
+/* rgb анімація*/
+@keyframes softRGB {
+    0%   { background-color: rgb(255, 0, 0); }
+    10%  { background-color: rgb(255, 100, 0); }
+    20%  { background-color: rgb(255, 200, 0); }
+    30%  { background-color: rgb(100, 255, 0); }
+    40%  { background-color: rgb(0, 255, 100); }
+    50%  { background-color: rgb(0, 100, 255); }
+    60%  { background-color: rgb(0, 0, 255); }
+    70%  { background-color: rgb(100, 0, 255); }
+    80%  { background-color: rgb(255, 0, 255); }
+    90%  { background-color: rgb(255, 0, 200); }
+    100% { background-color: rgb(255, 0, 0); }
+}
+
+.animation{
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.soft-rgb-animation, .soft-rgb-animation::before {
+    animation: softRGB 20s infinite linear;
+    will-change: background, filter;
+    transform: translateZ(0);
+}
+
+    @keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+.soft-rgb-animation {
+    height: 240px;
+    width: 240px;
+    border-radius: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotate(10deg);
+    position: relative;
+}
+.soft-rgb-animation::before{
+    content: "";
+    width: 240px;
+    height: 240px;
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: -1;
+    border-radius: 48px;
+    filter: blur(160px);
+}
+.download_icon{
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border: 2px solid rgba(255, 255, 255, 0.24);;
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotate(-20deg);
+    border-radius: 40px;
+    -webkit-backdrop-filter: blur(24px);
+    backdrop-filter: blur(24px);
+    bottom: -24px;
+    left:-40px;
+}
+
+///////////////////////////////////////////////////////////
+
 .btnBonus{
     position: fixed;
     top: 100px;
@@ -715,16 +827,11 @@
 
 .boxInfo{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr auto;
+    align-items: center;
     gap: 32px;
     @media (max-width:#{$md3}px) {
         grid-template-columns: 1fr;
-        .boxInfo__col:nth-child(1){
-            grid-column: auto;
-        }
-        .boxInfo__col:nth-child(3){
-           display: none;
-        }
     }
     &__grid{
         display: grid;

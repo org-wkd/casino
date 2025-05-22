@@ -90,9 +90,11 @@
 					</a>
 				</div>
 				<div class="firstScreen__image">
-					<img src="img/firstScreen-image.webp" width="328" height="328" alt="">
+					<img src="img/firstScreen-768.webp" 
+					srcset="/img/firstScreen-328.webp 328w, /img/firstScreen-492.webp 492w, /img/firstScreen-768.webp 768w"
+  					sizes="(min-width: 769px) 768px, 328px" width="328" height="328" alt="">
 				</div>
-				<div class="firstScreen__bg js-ibg" data-bg-image="./img/bg.webp">&nbsp;</div>
+				<div class="firstScreen__bg js-ibg-fScreen" data-bg-desc="./img/bg-desc.webp" data-bg-mob="./img/bg-mob.webp">&nbsp;</div>
 			</div>
 		</div>
 
@@ -118,23 +120,23 @@
 		@@include('blocks/seo-text.html')
 
 		<section class="tabs p-40-md3-16">
-			<a href="" class="tab active">
+			<a href="ajax-gameList-1.html" class="tab active">
             	<svg class="w-24"><use xlink:href="img/sprite/icons-sprite.svg#flame"/></svg>
 				<span>Popular</span>
 				<span class="tab__count">1 255</span>
 				<svg class="w-16"><use xlink:href="img/sprite/icons-sprite.svg#live"/></svg>
         	</a>
-			<a href="" class="tab">
+			<a href="ajax-gameList-2.html" class="tab">
             	<svg class="w-24"><use xlink:href="img/sprite/icons-sprite.svg#people"/></svg>
 				<span>Live Games</span>
 				<span class="tab__count">55</span>
         	</a>
-			<a href="" class="tab">
+			<a href="ajax-gameList-3.html" class="tab">
             	<svg class="w-24"><use xlink:href="img/sprite/icons-sprite.svg#x75"/></svg>
 				<span>Crash</span>
 				<span class="tab__count">124</span>
         	</a>
-			<a href="" class="tab">
+			<a href="ajax-gameCategory.html" class="tab">
 				<svg class="w-24"><use xlink:href="img/sprite/icons-sprite.svg#cup"/></svg>
 				<span>Betting</span>
 				<span class="tab__count">6</span>
@@ -142,181 +144,8 @@
         	</a>
 		</section>
 
-		<section class="gameList p-40-md3-16">
-			<div class="gameList__body">
-				<a href="" class="gameList__item">
-					<span class="gameList__image">
-						<span class="gameList__imageWrap">
-							<img class="posa" src="img/gamesList/1.webp" alt="">
-						</span>
-					</span>
-					<span class="gameList__title">Gates of Olympus 1000</span>
-				</a>
-				<a href="" class="gameList__item">
-					<span class="gameList__image">
-						<span class="gameList__imageWrap">
-							<img class="posa" src="img/gamesList/2.webp" alt="">
-						</span>
-					</span>
-					<span class="gameList__title">Joker Stoker</span>
-				</a>
-				<a href="" class="gameList__item">
-					<span class="gameList__image">
-						<span class="gameList__imageWrap">
-							<img class="posa" src="img/gamesList/3.webp" alt="">
-						</span>
-					</span>
-					<span class="gameList__title">Blazing Crown Deluxe</span>
-				</a>
-				<a href="" class="gameList__item">
-					<span class="gameList__image">
-						<span class="gameList__imageWrap">
-							<img class="posa" src="img/gamesList/4.webp" alt="">
-						</span>
-					</span>
-					<span class="gameList__title">Hell Hot 100</span>
-				</a>
-				<a href="" class="gameList__item">
-					<span class="gameList__image">
-						<span class="gameList__imageWrap">
-							<img class="posa" src="img/gamesList/5.webp" alt="">
-						</span>
-					</span>
-					<span class="gameList__title">Big Bass Bonanza 1000</span>
-				</a>
-				<a href="" class="gameList__item">
-					<span class="gameList__image">
-						<span class="gameList__imageWrap">
-							<img class="posa" src="img/gamesList/6.webp" alt="">
-						</span>
-					</span>
-					<span class="gameList__title">Coin Win: Hold The Spin</span>
-				</a>
-				<a href="" class="gameList__item">
-					<span class="gameList__image">
-						<span class="gameList__imageWrap">
-							<img class="posa" src="img/gamesList/7.webp" alt="">
-						</span>
-					</span>
-					<span class="gameList__title">Joker NV</span>
-				</a>
-				<a href="" class="gameList__item">
-					<span class="gameList__image">
-						<span class="gameList__imageWrap">
-							<img class="posa" src="img/gamesList/8.webp" alt="">
-						</span>
-					</span>
-					<span class="gameList__title">Ultimate Golden Dragon Inferno - Hold & Win</span>
-				</a>
-			</div>
-			<div class="f-jcc-aic mt-32">
-				<a href="#" class="btn btn_secondary">
-					<span>Show all</span>
-					<span>1 325</span>
-				</a>
-			</div>
-		</section>
-
-		<section class="tabs p-40-md3-16">
-			<a href="" class="tab">
-            	<svg class="w-24"><use xlink:href="img/sprite/icons-sprite.svg#flame"/></svg>
-				<span>Popular</span>
-				<span class="tab__count">1 255</span>
-				<svg class="w-16"><use xlink:href="img/sprite/icons-sprite.svg#live"/></svg>
-        	</a>
-			<a href="" class="tab">
-            	<svg class="w-24"><use xlink:href="img/sprite/icons-sprite.svg#people"/></svg>
-				<span>Live Games</span>
-				<span class="tab__count">55</span>
-        	</a>
-			<a href="" class="tab">
-            	<svg class="w-24"><use xlink:href="img/sprite/icons-sprite.svg#x75"/></svg>
-				<span>Crash</span>
-				<span class="tab__count">124</span>
-        	</a>
-			<a href="" class="tab active">
-            	<svg class="w-24"><use xlink:href="img/sprite/icons-sprite.svg#cup"/></svg>
-				<span>Betting</span>
-				<span class="tab__count">6</span>
-				<svg class="w-16"><use xlink:href="img/sprite/icons-sprite.svg#live"/></svg>
-        	</a>
-		</section>
-
-		<section class="gameCategory p-40-md3-16">
-			<div class="gameCategory__body">
-				<a href="" class="gameCategory__item">
-					<span class="gameCategory__image gameCategory__image_1">
-						<span class="gameCategory__imageWrap">
-							<img class="posa" src="img/gameCategory/1.webp" alt="">
-							<span class="gameCategory__title">Football</span>
-						</span>
-					</span>
-				</a>
-				<a href="" class="gameCategory__item">
-					<span class="gameCategory__image gameCategory__image_2">
-						<span class="gameCategory__imageWrap">
-							<img class="posa" src="img/gameCategory/2.webp" alt="">
-							<span class="gameCategory__title">Basketball</span>
-						</span>
-					</span>
-				</a>
-				<a href="" class="gameCategory__item">
-					<span class="gameCategory__image gameCategory__image_3">
-						<span class="gameCategory__imageWrap">
-							<img class="posa" src="img/gameCategory/3.webp" alt="">
-							<span class="gameCategory__title">Tennis</span>
-						</span>
-					</span>
-				</a>
-				<a href="" class="gameCategory__item">
-					<span class="gameCategory__image gameCategory__image_4">
-						<span class="gameCategory__imageWrap">
-							<span class="gameCategory__title">Hockey</span>
-							<img class="posa" src="img/gameCategory/4.webp" alt="">
-						</span>
-					</span>
-				</a>
-				<a href="" class="gameCategory__item">
-					<span class="gameCategory__image gameCategory__image_5">
-						<span class="gameCategory__imageWrap">
-							<img class="posa" src="img/gameCategory/5.webp" alt="">
-							<span class="gameCategory__title">Baseball</span>
-						</span>
-					</span>
-				</a>
-				<a href="" class="gameCategory__item">
-					<span class="gameCategory__image gameCategory__image_6">
-						<span class="gameCategory__imageWrap">
-							<img class="posa" src="img/gameCategory/6.webp" alt="">
-							<span class="gameCategory__title">Cricket</span>
-						</span>
-					</span>
-				</a>
-				<a href="" class="gameCategory__item">
-					<span class="gameCategory__image gameCategory__image_7">
-						<span class="gameCategory__imageWrap">
-							<img class="posa" src="img/gameCategory/7.webp" alt="">
-							<span class="gameCategory__title">Boxing</span>
-						</span>
-					</span>
-				</a>
-				<a href="" class="gameCategory__item">
-					<span class="gameCategory__image gameCategory__image_8">
-						<span class="gameCategory__imageWrap">
-							<span class="gameCategory__title">Cybersport</span>
-							<img class="posa" src="img/gameCategory/8.webp" alt="">
-						</span>
-					</span>
-				</a>
-			</div>
-			<div class="f-jcc-aic mt-32">
-				<a href="#" class="btn btn_secondary">
-					<span>Show</span>
-					<span>25</span>
-					<span>matches</span>
-					<svg class="w-16"><use xlink:href="img/sprite/icons-sprite.svg#live"/></svg>
-				</a>
-			</div>
+		<section class="p-40-md3-16" id="js-tab-content">
+			@@include('blocks/gameList-1.html')
 		</section>
 
 		<!-- Отзывы -->
@@ -367,6 +196,49 @@
 							<svg class="w-24"><use xlink:href="img/sprite/socials-sprite.svg#x"/></svg>
 						</a>
 					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="appDownload p-40-md3-16">
+			<div class="appDownload__card">
+				<div class="appDownload__text">
+					<p class="appDownload__title">Aviator game app download</p>
+					<div class="appDownload__links">
+						<a href="" class="linkApp">
+							<span class="f-aic">
+								<svg width="28" height="24"><use xlink:href="img/sprite/icons-sprite.svg#android-green"/></svg>
+								<span class="d-flex aifs fdc ml-8">
+									<span class="gray">App for</span>
+									<span class="bold">Android</span>
+								</span>
+							</span>
+							<svg class="w-24 rotate-270"><use xlink:href="img/sprite/icons-sprite.svg#chevron"/></svg>
+						</a>
+						<a href="" class="linkApp">
+							<span class="f-aic">
+								<svg width="18" height="24"><use xlink:href="img/sprite/icons-sprite.svg#apple"/></svg>
+								<span class="d-flex aifs fdc ml-8">
+									<span class="gray">App for</span>
+									<span class="bold">iOS</span>
+								</span>
+							</span>
+							<svg class="w-24 rotate-270"><use xlink:href="img/sprite/icons-sprite.svg#chevron"/></svg>
+						</a>
+						<a href="" class="linkApp max-md3-dn">
+							<span class="f-aic">
+								<img src="img/windows.svg" loading="lazy" width="25" height="25" alt="">
+								<span class="d-flex aifs fdc ml-8">
+									<span class="gray">App for</span>
+									<span class="bold">Android</span>
+								</span>
+							</span>
+							<svg class="w-24 rotate-270"><use xlink:href="img/sprite/icons-sprite.svg#chevron"/></svg>
+						</a>
+					</div>
+				</div>
+				<div class="appDownload__image">
+					@@include('blocks/img-app-download.html')
 				</div>
 			</div>
 		</section>
