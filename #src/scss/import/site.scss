@@ -544,13 +544,10 @@
 ///////////////////////////////////////////////////////////
 
 .reviews {
-    &__link{
+    &__title{
         font-size: 20px;
         line-height: 120%;
         font-weight: 700;
-        &:hover{
-            text-decoration: underline;
-        }
     }
     &__socials{
         margin: 0 -8px;

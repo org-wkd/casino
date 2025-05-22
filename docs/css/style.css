@@ -1559,14 +1559,10 @@ ol.list li:before,
   fill: #fff;
 }
 
-.reviews__link {
+.reviews__title {
   font-size: 20px;
   line-height: 120%;
   font-weight: 700;
-}
-
-.reviews__link:hover {
-  text-decoration: underline;
 }
 
 .reviews__socials {
