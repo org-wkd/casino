@@ -35,6 +35,7 @@
         justify-content: flex-end;
         @media (max-width:#{$md3}px) {
             flex: 1 1 0;
+            min-width: max-content;
         }
     }
     &__menu {
@@ -187,6 +188,8 @@
         }
     }
     &__mob{
+        display: flex;
+        align-items: center;
         @media (min-width:#{$md3}px) {
             display: none;
         }

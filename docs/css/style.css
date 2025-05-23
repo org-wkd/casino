@@ -1251,6 +1251,15 @@ ol.list li:before,
   margin-right: 4px;
 }
 
+.logo__mob {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .firstScreen {
   padding: 16px 16px 0 16px;
   margin: 0 -16px;
@@ -2607,6 +2616,9 @@ position sticky у блока .stickyBlock */
     -webkit-box-flex: 1;
         -ms-flex: 1 1 0px;
             flex: 1 1 0;
+    min-width: -webkit-max-content;
+    min-width: -moz-max-content;
+    min-width: max-content;
   }
 
   .header__menu {
