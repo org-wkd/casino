@@ -37,3 +37,9 @@ body{
 .logo__mob .logo__lang{
     margin: -4px;
 }
+
+@media (max-width:400px) {
+    .logo__mob{
+        flex-direction: column-reverse;
+    }
+}

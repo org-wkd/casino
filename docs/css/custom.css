@@ -40,3 +40,12 @@ body {
 .logo__mob .logo__lang {
   margin: -4px;
 }
+
+@media (max-width: 400px) {
+  .logo__mob {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
+}
