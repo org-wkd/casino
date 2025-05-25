@@ -156,12 +156,16 @@
     align-items: flex-start;
     white-space: nowrap;
     &__image{
-        height: 24px;
+        height: auto;
+        max-height: 54px;
         width: auto;
         object-fit: contain;
         max-width: 100%;
         position: relative;
         z-index: 2;
+        @media (max-width:#{$md3}px) {
+            max-height: 40px;
+        }
     }
     &__lang{
         width: 24px;
