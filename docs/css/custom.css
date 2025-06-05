@@ -41,10 +41,6 @@ body {
   margin: -4px;
 }
 
-.bookmaker svg use {
-  fill: #C20054;
-}
-
 @media (max-width: 400px) {
   .logo__mob {
     -webkit-box-orient: vertical;
