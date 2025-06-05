@@ -747,6 +747,152 @@
 
 ///////////////////////////////////////////////////////////
 
+.bookmaker{
+    overflow: hidden;
+    &__body{
+        position: relative;
+        background-color: rgba(255, 255, 255, 0.05);
+        border-radius: 24px;
+        @media (max-width:550px) {
+            padding: 32px 16px;
+        }
+    }
+    &__row{
+        display: grid;
+        align-items: center;
+        grid-template-columns: 1fr 1fr 1fr auto;
+        @media (max-width:1024px) {
+            grid-template-columns: 1fr 1fr auto;
+        }
+        @media (max-width:#{$md3}px) {
+            grid-template-columns: auto 1fr;
+        }
+        @media (max-width:550px) {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            align-items: stretch;
+        }
+    }
+    &__logo{
+        height: 64px;
+        max-width: 220px;
+        object-fit: contain;
+    }
+    &__col{
+        padding: 32px 32px 8px 32px;
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+        &_3{
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            @media (max-width:#{$md3}px) and (min-width:550px){
+                grid-column: span 2;
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+            @media (min-width:#{$md3}px) {
+                p{
+                    white-space: nowrap;
+                }
+            }
+        }
+        &_4{
+            gap: 16px;
+            align-items: center;
+            @media (max-width:1024px) {
+                grid-column: span 3;
+                .btn{
+                    width: 100%;
+                }
+            }
+            @media (max-width:#{$md3}px) {
+                grid-column: span 2;
+            }
+        }
+        @media (max-width:550px) {
+            padding: 0;
+        }
+    }
+    &__footer{
+        padding: 16px 32px 32px;
+        @media (max-width:1024px) {
+            padding-top: 32px;
+        }
+        @media (max-width:550px) {
+            padding: 32px 0 0 0;
+        }
+    }
+    &__partners{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 16px;
+        max-height: 16px;
+        overflow: hidden;
+        > img {
+            height: 16px;
+        }
+    }
+    svg use{
+        fill: #f7056e;
+    }
+}
+
+.promocode{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    background-color: var(--color-light);
+    color: #ccc;
+    padding: 4px 12px;
+    border-radius: 8px;
+    svg use {
+        fill: #fff !important;
+    }
+    &:hover{
+        background-color: var(--color-light-hover);
+    }
+}
+
+.copied{
+	position: fixed;
+	bottom: 16px;
+	left: 50%;
+    transform: translate(-50%, 130%);
+	background-color: var(--bg-color);
+	color: var(--color-opposite);
+	padding: 16px;
+	border-radius: 8px;
+	text-align: center;
+	z-index: 45;
+    border: 1px solid var(--color-light);
+    &.show{
+        animation: showMsg 0.25s ease-in-out 0s forwards;
+    }
+    &.hide{
+        animation: hideMsg 0.25s ease-in-out 0s forwards;
+    }
+}
+
+@keyframes showMsg {
+    0%{transform: translate(-50%, 130%);}
+    70%{transform: translate(-50%, -30%);}
+    100%{transform: translate(-50%, 0%);}
+}
+
+@keyframes hideMsg {
+    0%{transform: translate(-50%, 0%);}
+    30%{transform: translate(-50%, -30%);}
+    100%{transform: translate(-50%, 130%);}
+}
+
+///////////////////////////////////////////////////////////
+
 .fixedBottomBox{
     position: fixed;
     bottom: 0;

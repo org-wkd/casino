@@ -468,6 +468,10 @@ html :where(img[class*=wp-image-]) {
   text-decoration: underline;
 }
 
+.tt-u {
+  text-transform: uppercase;
+}
+
 .rotate-270 {
   -webkit-transform: rotate(270deg);
       -ms-transform: rotate(270deg);
@@ -1930,6 +1934,207 @@ ol.list li:before,
   background: var(--bg-btn-bonus-hover);
 }
 
+.bookmaker {
+  overflow: hidden;
+}
+
+.bookmaker__body {
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 24px;
+}
+
+.bookmaker__row {
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-template-columns: 1fr 1fr 1fr auto;
+}
+
+.bookmaker__logo {
+  height: 64px;
+  max-width: 220px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.bookmaker__col {
+  padding: 32px 32px 8px 32px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 8px;
+}
+
+.bookmaker__col_3 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 8px;
+}
+
+.bookmaker__col_4 {
+  gap: 16px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.bookmaker__footer {
+  padding: 16px 32px 32px;
+}
+
+.bookmaker__partners {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  gap: 16px;
+  max-height: 16px;
+  overflow: hidden;
+}
+
+.bookmaker__partners > img {
+  height: 16px;
+}
+
+.bookmaker svg use {
+  fill: #f7056e;
+}
+
+.promocode {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  background-color: var(--color-light);
+  color: #ccc;
+  padding: 4px 12px;
+  border-radius: 8px;
+}
+
+.promocode svg use {
+  fill: #fff !important;
+}
+
+.promocode:hover {
+  background-color: var(--color-light-hover);
+}
+
+.copied {
+  position: fixed;
+  bottom: 16px;
+  left: 50%;
+  -webkit-transform: translate(-50%, 130%);
+      -ms-transform: translate(-50%, 130%);
+          transform: translate(-50%, 130%);
+  background-color: var(--bg-color);
+  color: var(--color-opposite);
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+  z-index: 45;
+  border: 1px solid var(--color-light);
+}
+
+.copied.show {
+  -webkit-animation: showMsg 0.25s ease-in-out 0s forwards;
+          animation: showMsg 0.25s ease-in-out 0s forwards;
+}
+
+.copied.hide {
+  -webkit-animation: hideMsg 0.25s ease-in-out 0s forwards;
+          animation: hideMsg 0.25s ease-in-out 0s forwards;
+}
+
+@-webkit-keyframes showMsg {
+  0% {
+    -webkit-transform: translate(-50%, 130%);
+            transform: translate(-50%, 130%);
+  }
+
+  70% {
+    -webkit-transform: translate(-50%, -30%);
+            transform: translate(-50%, -30%);
+  }
+
+  100% {
+    -webkit-transform: translate(-50%, 0%);
+            transform: translate(-50%, 0%);
+  }
+}
+
+@keyframes showMsg {
+  0% {
+    -webkit-transform: translate(-50%, 130%);
+            transform: translate(-50%, 130%);
+  }
+
+  70% {
+    -webkit-transform: translate(-50%, -30%);
+            transform: translate(-50%, -30%);
+  }
+
+  100% {
+    -webkit-transform: translate(-50%, 0%);
+            transform: translate(-50%, 0%);
+  }
+}
+
+@-webkit-keyframes hideMsg {
+  0% {
+    -webkit-transform: translate(-50%, 0%);
+            transform: translate(-50%, 0%);
+  }
+
+  30% {
+    -webkit-transform: translate(-50%, -30%);
+            transform: translate(-50%, -30%);
+  }
+
+  100% {
+    -webkit-transform: translate(-50%, 130%);
+            transform: translate(-50%, 130%);
+  }
+}
+
+@keyframes hideMsg {
+  0% {
+    -webkit-transform: translate(-50%, 0%);
+            transform: translate(-50%, 0%);
+  }
+
+  30% {
+    -webkit-transform: translate(-50%, -30%);
+            transform: translate(-50%, -30%);
+  }
+
+  100% {
+    -webkit-transform: translate(-50%, 130%);
+            transform: translate(-50%, 130%);
+  }
+}
+
 .fixedBottomBox {
   position: fixed;
   bottom: 0;
@@ -2415,6 +2620,10 @@ article.searchResult__item {
     left: 48px;
   }
 
+  .bookmaker__col_3 p {
+    white-space: nowrap;
+  }
+
   .wpcf7-form > p {
     grid-template-columns: 1fr 1fr;
   }
@@ -2518,6 +2727,27 @@ article.searchResult__item {
   .btn_center {
     width: auto;
     max-width: 100%;
+  }
+
+  .bookmaker__row {
+    grid-template-columns: 1fr 1fr auto;
+  }
+
+  .bookmaker__col_4 {
+    grid-column: span 3;
+  }
+
+  .bookmaker__col_4 .btn,
+  .bookmaker__col_4 .wpcf7-form-control.wpcf7-submit,
+  .bookmaker__col_4 .navigation.posts-navigation .nav-previous a,
+  .navigation.posts-navigation .nav-previous .bookmaker__col_4 a,
+  .bookmaker__col_4 .navigation.posts-navigation .nav-next a,
+  .navigation.posts-navigation .nav-next .bookmaker__col_4 a {
+    width: 100%;
+  }
+
+  .bookmaker__footer {
+    padding-top: 32px;
   }
 }
 
@@ -2793,6 +3023,14 @@ position sticky у блока .stickyBlock */
             flex: 1;
   }
 
+  .bookmaker__row {
+    grid-template-columns: auto 1fr;
+  }
+
+  .bookmaker__col_4 {
+    grid-column: span 2;
+  }
+
   .welcomeBonus .btn,
   .welcomeBonus .wpcf7-form-control.wpcf7-submit,
   .welcomeBonus .navigation.posts-navigation .nav-previous a,
@@ -2887,6 +3125,34 @@ position sticky у блока .stickyBlock */
   }
 }
 
+@media (max-width: 550px) {
+  .bookmaker__body {
+    padding: 32px 16px;
+  }
+
+  .bookmaker__row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 32px;
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
+  }
+
+  .bookmaker__col {
+    padding: 0;
+  }
+
+  .bookmaker__footer {
+    padding: 32px 0 0 0;
+  }
+}
+
 @media (max-width: 479.98px) {
   .md4-w-100 {
     width: 100%;
@@ -2958,5 +3224,17 @@ position sticky у блока .stickyBlock */
   .gameCategory__item:hover img {
     top: 36px;
     left: 36px;
+  }
+}
+
+@media (max-width: 767.98px) and (min-width: 550px) {
+  .bookmaker__col_3 {
+    grid-column: span 2;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
   }
 }

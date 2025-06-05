@@ -2,6 +2,8 @@ img/sprite/icons-sprite.svg#android-green
 img/sprite/icons-sprite.svg#apple
 img/sprite/icons-sprite.svg#chevron
 img/sprite/icons-sprite.svg#close
+img/sprite/icons-sprite.svg#comment
+img/sprite/icons-sprite.svg#copy
 img/sprite/icons-sprite.svg#cup
 img/sprite/icons-sprite.svg#download
 img/sprite/icons-sprite.svg#flame
@@ -10,8 +12,11 @@ img/sprite/icons-sprite.svg#gift
 img/sprite/icons-sprite.svg#information
 img/sprite/icons-sprite.svg#live
 img/sprite/icons-sprite.svg#menu
+img/sprite/icons-sprite.svg#one
 img/sprite/icons-sprite.svg#people
+img/sprite/icons-sprite.svg#phone
 img/sprite/icons-sprite.svg#right-arrow
+img/sprite/icons-sprite.svg#time
 img/sprite/icons-sprite.svg#verified
 img/sprite/icons-sprite.svg#x75
 img/sprite/socials-sprite.svg#blog

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('blocks/head.html')
+<!-- role="dialog" -->
+<body>
+	@@include('blocks/header.html')
+	<main class="styledContent container">
+		<div class="firstScreen">
+			<div class="firstScreen__body">
+				<p class="firstScreen__title">Bonus dla Highrollera</p>
+				<div class="firstScreen__text nlc-mb-16">
+					<p>Aviator is a popular crash game for real money in India in 2024. Developed by Spribe, this online casino game is simple to play: place a bet and withdraw it before the red plane flies away. The longer the plane stays in the air, the higher the multiplier on your winnings.</p>
+				</div>
+				<div class="firstScreen__btn">
+					<a href="#" class="btn btn_primary">
+						<span class="btn__text">
+							<span class="btn__title">Register</span>
+							<span class="btn__subtitle">with bonus</span>
+						</span>
+						<svg class="w-32 shake"><use xlink:href="img/sprite/icons-sprite.svg#gift-btn"/></svg>
+					</a>
+				</div>
+				<div class="firstScreen__image">
+					<img src="img/firstScreen-768.webp" 
+					srcset="img/firstScreen-328.webp 328w, img/firstScreen-492.webp 492w, img/firstScreen-768.webp 768w"
+  					sizes="(min-width: 769px) 768px, 328px" width="328" height="328" alt="">
+				</div>
+				<div class="firstScreen__bg js-ibg-fScreen" data-bg-desc="./img/bg-desc.webp" data-bg-mob="./img/bg-mob.webp">&nbsp;</div>
+			</div>
+		</div>
+
+		<section class="games p-40-md3-16">
+			<a href="" class="games__item">
+            	<img src="img/mini-game/1.webp" loading="lazy" width="48" height="48" alt="">
+				<span>Sweet Bonanza</span>
+        	</a>
+			<a href="" class="games__item">
+            	<img src="img/mini-game/2.webp" loading="lazy" width="48" height="48" alt="">
+				<span>Gates of Olympus</span>
+        	</a>
+			<a href="" class="games__item">
+            	<img src="img/mini-game/3.webp" loading="lazy" width="48" height="48" alt="">
+				<span>3 Pyramids of Gold: Hold & Win</span>
+        	</a>
+			<a href="" class="games__item">
+            	<img src="img/mini-game/4.webp" loading="lazy" width="48" height="48" alt="">
+				<span>777 Hot Reels: Supercharged</span>
+        	</a>
+		</section>
+
+		@@include('blocks/seo-text.html')
+
+		<section class="tabs p-40-md3-16">
+			<a href="ajax-gameList-1.html" class="tab active">
+            	<svg class="w-24"><use xlink:href="img/sprite/icons-sprite.svg#flame"/></svg>
+				<span>Popular</span>
+				<span class="tab__count">1 255</span>
+				<svg class="w-16"><use xlink:href="img/sprite/icons-sprite.svg#live"/></svg>
+        	</a>
+			<a href="ajax-gameList-2.html" class="tab">
+            	<svg class="w-24"><use xlink:href="img/sprite/icons-sprite.svg#people"/></svg>
+				<span>Live Games</span>
+				<span class="tab__count">55</span>
+        	</a>
+			<a href="ajax-gameList-3.html" class="tab">
+            	<svg class="w-24"><use xlink:href="img/sprite/icons-sprite.svg#x75"/></svg>
+				<span>Crash</span>
+				<span class="tab__count">124</span>
+        	</a>
+			<a href="ajax-gameCategory.html" class="tab">
+				<svg class="w-24"><use xlink:href="img/sprite/icons-sprite.svg#cup"/></svg>
+				<span>Betting</span>
+				<span class="tab__count">6</span>
+				<svg class="w-16"><use xlink:href="img/sprite/icons-sprite.svg#live"/></svg>
+        	</a>
+		</section>
+
+		<section class="p-40-md3-16" id="js-tab-content">
+			@@include('blocks/gameList-1.html')
+		</section>
+
+		<!-- Отзывы -->
+		<section class="reviews p-40-md3-16">
+			<div class="reviews__card">
+				<div class="reviews__image">
+					<div class="reviews__wrapperImg">
+						<img class="posa" src="img//placeholder/pitt.jpg" loading="lazy" alt="">
+					</div>
+					
+				</div>
+				<div class="reviews__content nlc-mb-16">
+					<div class="reviews__name">
+						<div class="f-aic">
+							<p class="reviews__title">Banele Nkuna</p>
+							<svg class="w-24"><use xlink:href="img/sprite/icons-sprite.svg#verified" fill="#1D9BF0"/></svg>
+						</div>
+						<p>Author at in-aviator-game.in</p>
+						<p><span class="gray">Experience:</span> 3 years</p>
+					</div>
+					<div class="nlc-mb-8">
+						<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae sit officia dolore. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni aut sunt aliquam, sed porro tenetur sapiente dolorem fugiat laborum, quo id error ipsum perspiciatis eaque nemo cum esse non odit architecto obcaecati harum! Cum, omnis delectus! Earum exercitationem corporis debitis quas pariatur, blanditiis doloremque laborum vero possimus nesciunt itaque asperiores!</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus temporibus esse ipsa fuga, in expedita aspernatur ratione numquam dicta asperiores tempora ab harum.</p>
+					</div>
+					<div class="reviews__socials f-aic fww">
+						<a href="" class="linkSocial" aria-label="murkrack">
+							<svg class="w-24"><use xlink:href="img/sprite/socials-sprite.svg#murkrack"/></svg>
+						</a>
+						<a href="" class="linkSocial" aria-label="wiki">
+							<svg class="w-24"><use xlink:href="img/sprite/socials-sprite.svg#wiki"/></svg>
+						</a>
+						<a href="" class="linkSocial" aria-label="email">
+							<svg class="w-24"><use xlink:href="img/sprite/socials-sprite.svg#email"/></svg>
+						</a>
+						<a href="" class="linkSocial" aria-label="blog">
+							<svg class="w-24"><use xlink:href="img/sprite/socials-sprite.svg#blog"/></svg>
+						</a>
+						<a href="" class="linkSocial linkSocial_instagram" aria-label="instagram">
+							<svg class="w-24"><use xlink:href="img/sprite/socials-sprite.svg#instagram"/></svg>
+						</a>
+						<a href="" class="linkSocial linkSocial_facebook" aria-label="facebook">
+							<svg class="w-24"><use xlink:href="img/sprite/socials-sprite.svg#facebook"/></svg>
+						</a>
+						<a href="" class="linkSocial linkSocial_linkedin" aria-label="linkedin">
+							<svg class="w-24"><use xlink:href="img/sprite/socials-sprite.svg#linkedin"/></svg>
+						</a>
+						<a href="" class="linkSocial" aria-label="twitter">
+							<svg class="w-24"><use xlink:href="img/sprite/socials-sprite.svg#x"/></svg>
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="appDownload p-40-md3-16">
+			<div class="appDownload__card">
+				<div class="appDownload__text">
+					<p class="appDownload__title">Aviator game app download</p>
+					<div class="appDownload__links">
+						<a href="" class="linkApp">
+							<span class="f-aic">
+								<svg width="28" height="24"><use xlink:href="img/sprite/icons-sprite.svg#android-green"/></svg>
+								<span class="d-flex aifs fdc ml-8">
+									<span class="gray">App for</span>
+									<span class="bold">Android</span>
+								</span>
+							</span>
+							<svg class="w-24 rotate-270"><use xlink:href="img/sprite/icons-sprite.svg#chevron"/></svg>
+						</a>
+						<a href="" class="linkApp">
+							<span class="f-aic">
+								<svg width="18" height="24"><use xlink:href="img/sprite/icons-sprite.svg#apple"/></svg>
+								<span class="d-flex aifs fdc ml-8">
+									<span class="gray">App for</span>
+									<span class="bold">iOS</span>
+								</span>
+							</span>
+							<svg class="w-24 rotate-270"><use xlink:href="img/sprite/icons-sprite.svg#chevron"/></svg>
+						</a>
+						<a href="" class="linkApp max-md3-dn">
+							<span class="f-aic">
+								<img src="img/windows.svg" loading="lazy" width="25" height="25" alt="">
+								<span class="d-flex aifs fdc ml-8">
+									<span class="gray">App for</span>
+									<span class="bold">Android</span>
+								</span>
+							</span>
+							<svg class="w-24 rotate-270"><use xlink:href="img/sprite/icons-sprite.svg#chevron"/></svg>
+						</a>
+					</div>
+				</div>
+				<div class="appDownload__image">
+					@@include('blocks/img-app-download.html')
+				</div>
+			</div>
+		</section>
+	</main>
+	
+	<!-- !!! Ниже расположены блоки которые должны быть на всех страницах сайта  -->
+	@@include('blocks/common-blocks.html')
+	@@include('blocks/footer.html')
+	
+	<script src="js/script.js"></script>
+</body>
+</html>

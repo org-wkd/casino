@@ -173,6 +173,47 @@ document.querySelectorAll('.tab').forEach(link => {
   });
 });
 
+// Копирование текста в буфер обмена
+(function () {
+  // Копировать в буфер
+  function copyToClipboard(text) {
+    const textarea = document.createElement("textarea");
+    textarea.value = text;
+    textarea.setAttribute("readonly", "");
+    textarea.style.position = "absolute";
+    textarea.style.left = "-9999px";
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand("copy");
+    document.body.removeChild(textarea);
+  }
+
+  // Клик на скопировать ссылку
+  const buttons = document.querySelectorAll(".js-copy-text");
+
+  buttons.forEach(button => {
+    button.addEventListener("click", () => {
+      const text = button.dataset.promocode;
+      copyToClipboard(text);
+
+      const copiedElement = document.querySelector(".js-copied");
+
+      if (copiedElement) {
+        copiedElement.classList.add("show");
+
+        setTimeout(() => {
+          copiedElement.classList.remove("show");
+          copiedElement.classList.add("hide");
+
+          setTimeout(() => {
+            copiedElement.classList.remove("hide");
+          }, 280);
+        }, 2000);
+      }
+    });
+  });
+})();
+
 /** ======================================================================== */
     
 });
