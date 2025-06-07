@@ -395,6 +395,39 @@
     }
 }
 
+///////////////////// breadcrumbs //////////////////////////
+
+.breadcrumbs {
+    margin: -4px auto;
+	&__link {
+        padding: 4px 0;
+		&:not(:first-child){
+			padding-inline-start: 40px;
+			position: relative;
+			&:before{
+				position: absolute;
+				content: "";
+				top: calc(50% - 12px);
+				inset-inline-start: 8px;
+				width: 24px;
+				height: 24px;
+                transform: rotate(-90deg);
+				background-image: url("data:image/svg+xml,%3Csvg width='24' height='25' viewBox='0 0 24 25' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.3 10.6329C7.7 10.2329 8.3 10.2329 8.7 10.6329L12 13.9329L15.3 10.6329C15.7 10.2329 16.3 10.2329 16.7 10.6329C17.1 11.0329 17.1 11.6329 16.7 12.0329L12.7 16.0329C12.5 16.2329 12.3 16.3329 12 16.3329C11.7 16.3329 11.5 16.2329 11.3 16.0329L7.3 12.0329C6.9 11.6329 6.9 11.0329 7.3 10.6329Z' fill='%236C6C6E'/%3E%3C/svg%3E");  
+                background-position: 50% 50%;
+                html[dir="rtl"] & {
+                    transform: rotate(180deg);
+                }
+			}
+		}
+        &:last-child{
+            font-weight: 700;
+        }
+        &:not(:last-child){
+            color: var(--color-light-seo);
+        }
+	}
+}
+
 ///////////////////////////////////////////////////////////
 
 .gameCategory {
@@ -828,13 +861,14 @@
     }
     &__partners{
         display: flex;
+        align-items: center;
         flex-wrap: wrap;
         justify-content: flex-start;
         gap: 16px;
-        max-height: 16px;
+        max-height: 32px;
         overflow: hidden;
         > img {
-            height: 16px;
+            height: 32px;
         }
     }
     svg use{
@@ -981,10 +1015,11 @@
         flex-wrap: wrap;
         justify-content: space-between;
         gap: 16px;
-        max-height: 48px;
+        max-height: 80px;
         overflow: hidden;
         > img {
-            height: 16px;
+            height: 32px;
+            width: auto;
         }
         @media (max-width:#{$md2}px) {
             justify-content: flex-start;
