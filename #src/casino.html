@@ -140,9 +140,23 @@
         </table>
     </section>
 
+    <!-- Карта мира, доступность -->
+    <section class="container p-16">
+        <div class="f-jcsb-aic mb-32">
+            <p class="text-big">Global availability</p>
+            <button class="btn-6 regular js-popup-opener" data-popup-id="availableCountries">Show list</button>
+        </div>
+        @@include('blocks/world-map-svg.html')
+    </section>
+
     <!-- !!! Ниже расположены блоки которые должны быть на всех страницах сайта  -->
 	@@include('blocks/common-blocks.html')
 	@@include('blocks/footer.html')
+
+    <script>
+        // Список стран в которых доступно текущее казино
+        countryAvailability = ['canada', 'united-states-of-america', 'ukraine', 'spain'];
+    </script>
 	
 	<script src="js/script.js"></script>
 </body>

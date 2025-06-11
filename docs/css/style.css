@@ -787,6 +787,15 @@ html[dir=rtl] .rotate-270 {
   font-size: 12px;
 }
 
+.btn-6 {
+  color: var(--color-opposite);
+  background-color: transparent;
+}
+
+.btn-6:hover {
+  text-decoration: underline;
+}
+
 .shake {
   -webkit-transform-origin: 0%;
       -ms-transform-origin: 0%;

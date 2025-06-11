@@ -29,6 +29,14 @@
     }
 }
 
+.btn-6{
+    color: var(--color-opposite);
+    background-color: transparent;
+    &:hover{
+        text-decoration: underline;
+    }
+}
+
 .shake {
     transform-origin: 0%;
     animation: shake 5s ease-in-out infinite;

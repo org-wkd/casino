@@ -203,6 +203,18 @@ document.addEventListener('click', function () {
 	inputs.forEach(input => input.classList.remove('wpcf7-not-valid'));
 });
 
+// Если это страница казино, подсветить доступные страны
+const globalMap = document.querySelectorAll('.js-map-global-availability');
+if (globalMap.length === 1) {
+	const mapElement = globalMap[0]; // так как их точно один
+	countryAvailability.forEach(function(id) {
+		const country = mapElement.querySelector('#country-' + id);
+		if (country) {
+			country.setAttribute('fill', '#34C759');
+		}
+	});
+}
+
 // Актуальный год в футере
 (function () {
 	const now = new Date();
