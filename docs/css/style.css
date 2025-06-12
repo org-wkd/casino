@@ -1972,6 +1972,58 @@ html[dir=rtl] .breadcrumbs__link:not(:first-child):before {
   -webkit-backdrop-filter: blur(24px);
 }
 
+ol.list {
+  list-style: none;
+  counter-reset: myCount;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 32px;
+}
+
+ol.list li {
+  background-color: var(--color-light);
+  position: relative;
+  padding: 32px !important;
+  border-radius: 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 32px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 45%;
+          flex: 1 1 45%;
+  min-width: 275px;
+  margin-bottom: 0px !important;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  z-index: 20;
+}
+
+ol.list li:before {
+  content: counter(myCount);
+  counter-increment: myCount;
+  font-size: 120px !important;
+  line-height: 100px !important;
+  font-weight: 900;
+  margin-bottom: -55px;
+  position: relative;
+  z-index: -2;
+  background: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), color-stop(50%, rgba(255, 255, 255, 0.3)), color-stop(75%, rgba(255, 255, 255, 0.05)), to(rgba(255, 255, 255, 0)));
+  background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.05) 75%, rgba(255, 255, 255, 0) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 .btnBonus {
   position: fixed;
   top: 100px;

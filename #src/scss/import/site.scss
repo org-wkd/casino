@@ -762,6 +762,45 @@
 }
 
 ///////////////////////////////////////////////////////////
+    
+ol.list{
+    list-style: none;
+    counter-reset: myCount;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    li{
+        background-color: var(--color-light);
+        position: relative;
+        padding: 32px !important;
+        border-radius: 24px;
+        display: flex;
+        gap: 32px;
+        flex: 1 1 45%;
+        min-width: 275px;
+        margin-bottom: 0px !important;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        z-index: 20;
+        &:before{
+            content: counter(myCount);
+            counter-increment: myCount;
+            font-size: 120px !important;
+            line-height: 100px !important;
+            font-weight: 900;
+            margin-bottom: -55px;
+            position: relative;
+            z-index: -2;
+            background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.05) 75%, rgba(255, 255, 255, 0) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    }
+}
+
+///////////////////////////////////////////////////////////
 
 .btnBonus{
     position: fixed;
