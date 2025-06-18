@@ -1725,12 +1725,13 @@ html[dir=rtl] .breadcrumbs__link:not(:first-child):before {
 .appDownload__text {
   padding: 32px;
   -webkit-box-flex: 0;
-      -ms-flex: 0 1 568px;
-          flex: 0 1 568px;
+      -ms-flex: 0 1 655px;
+          flex: 0 1 655px;
 }
 
 .appDownload__title {
   margin-bottom: 32px;
+  max-width: 500px;
 }
 
 .appDownload__links {
@@ -1753,7 +1754,7 @@ html[dir=rtl] .breadcrumbs__link:not(:first-child):before {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  min-width: 145px;
+  min-width: 187px;
 }
 
 .appDownload__image {
@@ -2400,6 +2401,7 @@ ol.list li:before {
   border-radius: 12px;
   padding-block: 16px;
   padding-inline: 16px 8px;
+  white-space: nowrap;
 }
 
 .linkApp:hover {
@@ -3181,6 +3183,14 @@ position sticky у блока .stickyBlock */
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+
+  .boxLinksApp__mobile .linkApp {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 0 180px;
+            flex: 1 0 180px;
   }
 
   .boxLinksApp__windows {

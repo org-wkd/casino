@@ -647,7 +647,7 @@
     }
     &__text {
         padding: 32px;
-        flex: 0 1 568px;
+        flex: 0 1 655px;
         @media (max-width:#{$md3}px) {
             flex: 1;
         }
@@ -655,6 +655,7 @@
     &__title {
         @extend .text-huge;
         margin-bottom: 32px;
+        max-width: 500px;
     }
     &__links {
         display: flex;
@@ -666,7 +667,7 @@
         }
         .linkApp{
             flex: 1;
-            min-width: 145px;
+            min-width: 187px;
         }
     }
     &__image {
@@ -1119,6 +1120,10 @@ ol.list{
         
         @media (max-width:#{$md3}px) {
             flex-direction: row;
+            flex-wrap: wrap;
+            .linkApp{
+                flex: 1 0 180px;
+            }
         }
     }
     &__windows{
@@ -1140,6 +1145,7 @@ ol.list{
     border-radius: 12px;
     padding-block: 16px;
     padding-inline: 16px 8px;
+    white-space: nowrap;
     &:hover{
         background-color: var(--color-light-hover);
     }
