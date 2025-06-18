@@ -1725,8 +1725,8 @@ html[dir=rtl] .breadcrumbs__link:not(:first-child):before {
 .appDownload__text {
   padding: 32px;
   -webkit-box-flex: 0;
-      -ms-flex: 0 1 655px;
-          flex: 0 1 655px;
+      -ms-flex: 0 1 660px;
+          flex: 0 1 660px;
 }
 
 .appDownload__title {
