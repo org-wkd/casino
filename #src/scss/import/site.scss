@@ -310,7 +310,7 @@
 
 .games {
     display: flex;
-    padding: 16px 0 80px 0;
+    padding: 16px 0 40px 0;
     gap: 16px;
     flex-wrap: wrap;
     &__item {
@@ -635,6 +635,7 @@
 ///////////////////////////////////////////////////////////
 
 .appDownload {
+    padding: 20px 16px;
     &__card {
         background-color: var(--color-light);
         position: relative;
