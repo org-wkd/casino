@@ -76,6 +76,10 @@ html :where(img[class*=wp-image-]){
 	border-radius: 8px;
 }
 
+main > article:first-child{
+    margin-top: 16px;
+}
+
 ///////////////////// MARGIN-PADDING //////////////////////
 
 .mt-2{margin-top: 2px;}

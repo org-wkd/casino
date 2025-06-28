@@ -163,7 +163,7 @@ img.alignleft, img.alignright{
     inset-inline-start: 0;
     z-index: 102;
     background-color: rgba(0, 0, 0, 0.5); /* immutable */
-    //backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
     &.active{
         display: block;
     }
