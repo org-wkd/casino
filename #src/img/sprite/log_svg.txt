@@ -1,5 +1,6 @@
 img/sprite/icons-sprite.svg#android-green
 img/sprite/icons-sprite.svg#apple
+img/sprite/icons-sprite.svg#arrow
 img/sprite/icons-sprite.svg#chevron
 img/sprite/icons-sprite.svg#close
 img/sprite/icons-sprite.svg#comment

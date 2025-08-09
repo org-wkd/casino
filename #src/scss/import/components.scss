@@ -29,11 +29,74 @@
     }
 }
 
+.btn-dropdown{
+    background-color: transparent;
+    color: #fff;
+    display: flex;
+    white-space: nowrap;
+    align-items: center;
+    font-weight: 700;
+    padding: 8px 16px;
+    border-radius: 8px;
+    &:hover{
+        background-color: var(--color-light);
+    }
+    &_filled{
+        align-self: center;
+        padding: 8px;
+        background: var(--color-light);
+        &:hover{
+            background-color: var(--color-light-hover);
+        }
+    }
+}
+
+.btn-2{
+    width: 100%;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--color-opposite);
+    background-color: var(--color-light);
+    &:hover{
+        background-color: var(--color-light-hover);
+    }
+    svg use{
+        fill: white;
+    }
+}
+
 .btn-6{
     color: var(--color-opposite);
     background-color: transparent;
     &:hover{
         text-decoration: underline;
+    }
+}
+
+.scroll-styled{
+    -webkit-overflow-scrolling:touch;
+    @media (min-width: #{$md3}px){
+      ::-webkit-scrollbar {
+        width: 12px; /* ширина для вертикального скролла */
+        height: 12px; /* высота для горизонтального скролла */
+        background-color: var(--color-opposite);
+      }
+  
+      /* ползунок скроллбара */
+      ::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.2); /* immutable */
+        border-radius: 4px;
+      }
+  
+      ::-webkit-scrollbar-thumb:hover {
+        background-color: rgba(0, 0, 0, 0.5); /* immutable */
+      }
+  
+      // Для FireFox
+      scrollbar-color: #232325 var(--bg-color); /* «цвет ползунка» «цвет полосы скроллбара» */
+      scrollbar-width: thin;
     }
 }
 

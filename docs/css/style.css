@@ -791,6 +791,60 @@ html[dir=rtl] .rotate-270 {
   font-size: 12px;
 }
 
+.btn-dropdown {
+  background-color: transparent;
+  color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  white-space: nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 8px;
+}
+
+.btn-dropdown:hover {
+  background-color: var(--color-light);
+}
+
+.btn-dropdown_filled {
+  -ms-flex-item-align: center;
+      align-self: center;
+  padding: 8px;
+  background: var(--color-light);
+}
+
+.btn-dropdown_filled:hover {
+  background-color: var(--color-light-hover);
+}
+
+.btn-2 {
+  width: 100%;
+  padding: 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  color: var(--color-opposite);
+  background-color: var(--color-light);
+}
+
+.btn-2:hover {
+  background-color: var(--color-light-hover);
+}
+
+.btn-2 svg use {
+  fill: white;
+}
+
 .btn-6 {
   color: var(--color-opposite);
   background-color: transparent;
@@ -798,6 +852,10 @@ html[dir=rtl] .rotate-270 {
 
 .btn-6:hover {
   text-decoration: underline;
+}
+
+.scroll-styled {
+  -webkit-overflow-scrolling: touch;
 }
 
 .shake {
@@ -2720,6 +2778,32 @@ article.searchResult__item {
 
   .popup_centered .popup__content {
     padding: 16px;
+  }
+
+  .scroll-styled {
+    /* ползунок скроллбара */
+    scrollbar-color: #232325 var(--bg-color);
+    /* «цвет ползунка» «цвет полосы скроллбара» */
+    scrollbar-width: thin;
+  }
+
+  .scroll-styled ::-webkit-scrollbar {
+    width: 12px;
+    /* ширина для вертикального скролла */
+    height: 12px;
+    /* высота для горизонтального скролла */
+    background-color: var(--color-opposite);
+  }
+
+  .scroll-styled ::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    /* immutable */
+    border-radius: 4px;
+  }
+
+  .scroll-styled ::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+    /* immutable */
   }
 
   .logo__mob {

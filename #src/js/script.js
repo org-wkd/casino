@@ -185,6 +185,21 @@ document.querySelectorAll('.tab').forEach(link => {
   });
 });
 
+// Форма в попапе "Language"
+document.querySelectorAll('.js-form-item').forEach(item => {
+    item.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        const value = this.dataset.value;
+        const form = this.closest('.js-form');
+
+        form.querySelector('.js-form-value').value = value;
+        form.submit();
+
+        close_popup();
+    });
+});
+
 // Копирование текста в буфер обмена
 (function () {
   // Копировать в буфер
