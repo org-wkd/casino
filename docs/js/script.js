@@ -79,6 +79,15 @@ function openPopup(popupID, triggerRect, additionalClass) {
 	}
 }
 
+// Меняем тип попапа language если экран меньше 1151
+if(w < 1151){
+    const popupLanguage = document.getElementById('language');
+    if(popupLanguage){
+        popupLanguage.setAttribute("data-type", "centered");
+        popupLanguage.classList.add("popup_centered");
+    }
+}
+
 // Закрытие по клику вне
 document.addEventListener(isMobile ? "touchend" : "mousedown", function(e) {
 	const isClickInsidePopup = [...popups].some(popup => popup.contains(e.target));
