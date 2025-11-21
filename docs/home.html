@@ -98,9 +98,14 @@
 					</a>
 				</div>
 				<div class="firstScreen__image">
-					<img src="img/firstScreen-768.webp" 
-					srcset="img/firstScreen-328.webp 328w, img/firstScreen-492.webp 492w, img/firstScreen-768.webp 768w"
-  					sizes="(min-width: 769px) 768px, 328px" width="328" height="328" alt="">
+                    <picture>
+                        <source 
+                            srcset="img/firstScreen-328.webp 328w, img/firstScreen-492.webp 492w, img/firstScreen-768.webp 768w"
+                            sizes="768px"
+                            media="(min-width: 769px)"
+                        >
+                        <img src="" alt="">
+                    </picture>
 				</div>
 				<div class="firstScreen__bg js-ibg-fScreen" data-bg-desc="./img/bg-desc.webp" data-bg-mob="./img/bg-mob.webp">&nbsp;</div>
 			</div>
