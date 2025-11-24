@@ -16,6 +16,10 @@ body{
     -webkit-box-shadow: 0 8px 50px #C20054;
 }
 
+.textBonus{
+    color: #C20054;
+}
+
 .btn_primary:hover{
     background: #FF2885;
 }
