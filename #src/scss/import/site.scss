@@ -18,7 +18,14 @@
             backdrop-filter: blur(64px);
         }
     }
-    
+    &:not(.relative).active{
+        .header__burger{
+            display: none;
+        }
+    }
+    &.relative{
+        position: relative;
+    }
     &__body {
         position: relative;
         z-index: 80;
@@ -165,20 +172,29 @@
     }
 }
 
+.logoWelcomeBonus:not(:has(.logo__mob)) {
+    @media (max-width:#{$md3}px) {
+        display: none;
+    }
+}
+
 .logo{
     display: flex;
     align-items: flex-start;
     white-space: nowrap;
+    font-size: clamp(20px, 4vw, 36px);
+    line-height: 1.2;
+    font-weight: 700;
+    white-space: nowrap;
     &__image{
-        height: auto;
-        max-height: 54px;
+        height: 54px;
         width: auto;
         object-fit: contain;
         max-width: 100%;
         position: relative;
         z-index: 2;
         @media (max-width:#{$md3}px) {
-            max-height: 40px;
+            height: 40px;
         }
     }
     &__lang{
@@ -188,7 +204,7 @@
         border-radius: 99px;
         background-color: #fff;
         position: relative;
-        display: inline-flex;
+        display: block;
         align-items: center;
         justify-content: center;
         padding: 2px;
@@ -198,11 +214,12 @@
         }
     }
     &__pc{
-        @media (max-width:#{$md3}px) {
-            display: none;
-        }
+        overflow: hidden;
+        display: flex;
         .logo__image{
-            margin-right: 4px;
+            @media (min-width:#{$md3}px) {
+                margin-right: 4px;
+            }
         }
     }
     &__mob{
@@ -233,6 +250,11 @@
         @media (max-width:#{$md3}px) {
             grid-template-columns: 1fr;
         }
+        &:hover{
+            .firstScreen__flag{
+                animation: scaled 0.5s ease 0s forwards;
+            }
+        }
     }
     &__title {
         grid-column: 1 / 3;
@@ -262,6 +284,10 @@
         padding-bottom: 51px;
         padding-inline-start: 64px;
         padding-inline-end: 8px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        gap: 8px;
         > *:not(:last-child){
             margin-bottom: 2px;
         }
@@ -290,11 +316,8 @@
         position: relative;
         height: 100%;
         img{
-            position: absolute;
-            bottom: 0;
-            left: 92px;
-            width: 328px;
-            height: 328px;
+           width: auto;
+           height: 100%;
         }
         @media (max-width:#{$md3}px) {
             grid-column: 1 / 2;
@@ -307,6 +330,42 @@
                 flex: 0 1 328px;
                 height: auto;
             }
+        }
+    }
+    &__imageWrapper{
+        position: absolute;
+        bottom: 0;
+        left: 92px;
+        min-height: 328px;
+        max-height: 90%;
+        width: 100%;
+        //background-color: rgba(158, 100, 25, 0.5);
+        display: flex;
+        justify-content: flex-start;
+    }
+    &__flag{
+        aspect-ratio: 1/1;
+        width: auto;
+        &:after, &:before{
+            content: "";
+            background-image: var(--flag-url);
+            background-size: cover;
+            position: absolute;
+        }
+        &:before {
+            top: 32px;
+            right: 48px;
+            width: 64px;
+            height: 64px;
+            transform: perspective(80px) rotateY(45deg) rotateX(45deg);
+        }
+        &:after {
+            bottom: 32px;
+            right: 30%;
+            width: 128px;
+            height: 128px;
+            transform: perspective(80px) rotateY(15deg) rotateX(20deg) skewX(10deg) translateX(10px);
+            filter: blur(4px);
         }
     }
     &__bg {
@@ -332,6 +391,18 @@
                 box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
             }
         }
+    }
+}
+
+@keyframes scaled {
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.15);
+    }
+    100%{
+        transform: scale(1);
     }
 }
 
@@ -1055,6 +1126,7 @@ ol.list{
             }
         }
         > .btn.btn_secondary{
+            text-align: center;
             @media (max-width:#{$md3}px) {
                 font-size: 12px;
             }
@@ -1084,6 +1156,9 @@ ol.list{
     @media (max-width:#{$md3}px) {
         .btn{
             padding: 12px;
+        }
+        .logo__pc{
+            display: none;
         }
     }
 }

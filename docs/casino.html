@@ -21,17 +21,15 @@
 </head>
 <!-- role="dialog" -->
 <body>
-	<header class="header js-header">
+	<header class="header js-header"> <!-- Дополнительный класс relative если логотип прописан текстом -->
     <div class="header__body container">
         <div class="header__logo">
             <a class="logo" href="" aria-label="logo image">
                 <span class="logo__pc">
-                    <img class="logo__image" src="img/test.png" width="120" height="24" alt="">
-                    <span class="logo__lang"><img src="img/lang/pl.svg" width="20" height="20" alt=""></span>
-                </span>
-                <span class="logo__mob">
-                    <span class="logo__wrapper">
-                        <img class="logo__image" src="img/logo-mini-2.png" width="40" height="40" alt="">
+                    <span>
+                        <img class="logo__image" src="img/test.png" width="120" height="24" alt="">
+                        <!-- Если нет логотипа, вместо него выводим название казино текстом (пример ниже) -->
+                        <!-- <span class="textLogo">Highrollera</span> -->
                     </span>
                     <span class="logo__lang"><img src="img/lang/pl.svg" width="20" height="20" alt=""></span>
                 </span>
@@ -1912,13 +1910,19 @@
 <!-- Welcome bonus -->
 <aside class="welcomeBonus fixedBottomBox js-welcomeBonus">
     <div class="container f-jcsb-aic welcomeBonus__boby fixedBottomBox__body">
-        <a class="logo" href="" aria-label="logo image">
+        <a class="logo logoWelcomeBonus" href="" aria-label="logo image">
             <span class="logo__pc">
-                <img class="logo__image" src="img/logo.svg" width="120" height="24" alt="">
+                <span>
+                    <img class="logo__image" src="img/logo.svg" width="120" height="24" alt="">
+                    <!-- Если нет логотипа, вместо него выводим название казино текстом (пример ниже) -->
+                    <!-- <span class="textLogo">Highrollera</span> -->
+                </span>
                 <span class="logo__lang"><img src="img/lang/pl.svg" width="20" height="20" alt=""></span>
             </span>
             <span class="logo__mob">
-                <img class="logo__image" src="img/logo-mini.svg" width="40" height="40" alt="">
+                <span>
+                    <img class="logo__image" src="img/logo-mini.svg" width="40" height="40" alt="">
+                </span>
                 <span class="logo__lang"><img src="img/lang/pl.svg" width="20" height="20" alt=""></span>
             </span>
         </a>
