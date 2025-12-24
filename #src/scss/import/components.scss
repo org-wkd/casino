@@ -9,6 +9,10 @@
     gap: 8px;
     &_primary{
         padding: 8px 20px 8px 24px;
+        &.btn_center{
+            font-weight: bold;
+            max-width: 350px;
+        }
     }
     &_secondary{
         padding: 14px 22px;
@@ -170,6 +174,7 @@ img.alignleft, img.alignright{
 
 .btn_center {
   width: 40%;
+  text-align: center;
   @media (max-width:1024px) {
     width: auto;
     max-width: 100%;

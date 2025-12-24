@@ -760,6 +760,11 @@ html[dir=rtl] .rotate-270 {
   padding: 8px 20px 8px 24px;
 }
 
+.btn_primary.btn_center {
+  font-weight: bold;
+  max-width: 350px;
+}
+
 .btn_secondary,
 .wpcf7-form-control.wpcf7-submit,
 .navigation.posts-navigation .nav-previous a,
@@ -962,6 +967,7 @@ html[dir=rtl] .rotate-270 {
 
 .btn_center {
   width: 40%;
+  text-align: center;
 }
 
 .btn-round {
