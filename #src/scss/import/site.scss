@@ -229,6 +229,11 @@
         @media (min-width:#{$md3}px) {
             display: none;
         }
+        .logo__image{
+            @media (max-width:#{$md3}px) {
+                max-height: 44px;
+            }
+        }
     }
 }
 

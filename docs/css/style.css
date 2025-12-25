@@ -3305,6 +3305,10 @@ position sticky у блока .stickyBlock */
     height: 40px;
   }
 
+  .logo__mob .logo__image {
+    max-height: 44px;
+  }
+
   .firstScreen__body {
     grid-template-columns: 1fr;
   }
