@@ -178,6 +178,20 @@
     }
 }
 
+.welcomeBonus:not(:has(.logo__mob)) {
+    @media (max-width:#{$md3}px) {
+        .md3-ta-c{
+            text-align: left;
+            .md3-text-small{
+                font-size: 14px;
+            }
+        }
+        .btn.btn_secondary{
+            font-size: 14px;
+        }
+    }
+}
+
 .logo{
     display: flex;
     align-items: flex-start;

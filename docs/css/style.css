@@ -3301,6 +3301,23 @@ position sticky у блока .stickyBlock */
     display: none;
   }
 
+  .welcomeBonus:not(:has(.logo__mob)) .md3-ta-c {
+    text-align: left;
+  }
+
+  .welcomeBonus:not(:has(.logo__mob)) .md3-ta-c .md3-text-small {
+    font-size: 14px;
+  }
+
+  .welcomeBonus:not(:has(.logo__mob)) .btn.btn_secondary,
+  .welcomeBonus:not(:has(.logo__mob)) .wpcf7-form-control.wpcf7-submit,
+  .welcomeBonus:not(:has(.logo__mob)) .navigation.posts-navigation .nav-previous a,
+  .navigation.posts-navigation .nav-previous .welcomeBonus:not(:has(.logo__mob)) a,
+  .welcomeBonus:not(:has(.logo__mob)) .navigation.posts-navigation .nav-next a,
+  .navigation.posts-navigation .nav-next .welcomeBonus:not(:has(.logo__mob)) a {
+    font-size: 14px;
+  }
+
   .logo__image {
     height: 40px;
   }
