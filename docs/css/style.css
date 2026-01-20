@@ -1286,6 +1286,10 @@ ol.list li:before,
   display: none;
 }
 
+.header__burger svg use {
+  fill: #fff;
+}
+
 .header__menuButtons {
   display: -webkit-box;
   display: -ms-flexbox;
