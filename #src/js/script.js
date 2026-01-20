@@ -200,6 +200,16 @@ document.querySelectorAll('.js-form-item').forEach(item => {
     });
 });
 
+// Логика переворота карточки firstScreen по клику на мобильных устройствах
+(function () {
+    const card = document.querySelector('.firstScreen');
+    card.addEventListener('click', () => {
+        if(w < BREAKPOINT_md3){
+            card.classList.toggle('is-flipped');
+        }
+    });
+})();
+
 // Копирование текста в буфер обмена
 (function () {
   // Копировать в буфер
@@ -239,17 +249,6 @@ document.querySelectorAll('.js-form-item').forEach(item => {
       }
     });
   });
-})();
-
-
-// Логика переворота карточки firstScreen по клику на мобильных устройствах
-(function () {
-    const card = document.querySelector('.firstScreen');
-    card.addEventListener('click', () => {
-        if(w < BREAKPOINT_md3){
-            card.classList.toggle('is-flipped');
-        }
-    });
 })();
 
 /** ======================================================================== */
