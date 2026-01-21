@@ -456,6 +456,12 @@
     }
 }
 
+.textBonus{
+    @media (max-width:#{$md3}px) {
+        color: var(--color-primary);
+    }
+}
+
 /////////////////////////////////////////////////////////////
 
 .games {
