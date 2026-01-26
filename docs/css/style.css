@@ -1359,6 +1359,12 @@ ol.list li:before,
   display: flex;
 }
 
+.logo__imageWrap {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 200px;
+          flex: 0 1 200px;
+}
+
 .logo__mob {
   display: -webkit-box;
   display: -ms-flexbox;

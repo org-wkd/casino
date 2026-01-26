@@ -239,6 +239,9 @@
             }
         }
     }
+    &__imageWrap{
+        flex: 0 1 200px;
+    }
     &__mob{
         display: flex;
         align-items: center;
