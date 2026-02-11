@@ -52,18 +52,22 @@
         }
     }
     &__menu {
+        overflow: hidden;
         flex-grow: 1;
         @media (min-width:#{$mdMenu}px) {
             display: flex;
             justify-content: space-between;
             align-items: center;
             gap: 16px;
+            flex: 1 1 0;
         }
         ul{
             flex: 1;
             display: flex;
             justify-content: center;
-            flex-wrap: wrap;
+            li{
+                white-space: nowrap;
+            }
             column-gap: 0px;
             row-gap: 8px;
             font-weight: bold;

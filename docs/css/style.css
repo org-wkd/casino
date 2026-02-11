@@ -1247,6 +1247,7 @@ ol.list li:before,
 }
 
 .header__menu {
+  overflow: hidden;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
@@ -1262,13 +1263,15 @@ ol.list li:before,
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
   -webkit-column-gap: 0px;
      -moz-column-gap: 0px;
           column-gap: 0px;
   row-gap: 8px;
   font-weight: bold;
+}
+
+.header__menu ul li {
+  white-space: nowrap;
 }
 
 .header__bgOverlay {
@@ -3038,6 +3041,9 @@ article.searchResult__item {
         -ms-flex-align: center;
             align-items: center;
     gap: 16px;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 0px;
+            flex: 1 1 0;
   }
 
   .header__menu ul a {
