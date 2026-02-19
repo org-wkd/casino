@@ -469,53 +469,24 @@
     }
 }
 
-/////////////////////////////////////////////////////////////
-
-.games {
-    display: flex;
-    padding: 16px 0 40px 0;
-    gap: 16px;
-    flex-wrap: wrap;
-    &__item {
-        flex: 1;
-        display: flex;
-        align-items: center;
-        gap: 16px;
-        background-color: var(--color-light);
-        border-radius: 12px;
-        padding: 16px;
-        &:hover{
-            background-color: var(--color-light-hover);
-        }
-        img{
-            flex: 0 0 48px;
-            width: 48px;
-            height: 48px;
-            border-radius: 8px;
-        }
-        svg{
-            opacity: 0;
-        }
-        span{
-            flex: 1;
-            font-weight: 700;
-        }
-        @media (max-width:#{$md2}px) {
-            flex-basis: 45%;
-        }
-        @media (max-width:580px) {
-            flex-direction: column;
-            text-align: center;
-        }
-    }
-}
-
 ///////////////////////////////////////////////////////////
 
 .cardsGrid {
+    padding-top: 16px;
     @media (max-width: 639px) {
+        padding-top: 8px;
         padding-inline-start: 16px;
         margin: 0 -16px;
+    }
+    &__title{
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin: 0;
+        padding: 16px 0;
+        color: white;
+        font-weight: 700;
+        font-size: 30px;
     }
     &__container{
         display: grid;
