@@ -146,6 +146,37 @@ if (globalMap.length === 1) {
 	}, 0);
 })();
 
+// Ленивая загрузка background-image для карточек игр
+(function ibgObserver() {
+    const elements = document.querySelectorAll('.js-ibg-gameCard');
+
+    if (!('IntersectionObserver' in window)) {
+        elements.forEach(el => {
+            const bgUrl = el.closest('.gameCard').querySelector('img').src;
+            el.style.backgroundImage = `url(${bgUrl})`;
+        });
+        return;
+    }
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+
+            const el = entry.target;
+            const bgUrl = el.closest('.gameCard').querySelector('img').src;
+
+            el.style.backgroundImage = `url(${bgUrl})`;
+
+            observer.unobserve(el);
+        });
+    }, {
+        rootMargin: '200px',
+        threshold: 0.01
+    });
+
+    elements.forEach(el => observer.observe(el));
+})();
+
 const header = document.querySelector('.js-header');
 // Добавляем header-у класс active если проскролено хоть немного 
 function scrollForHeader(scrollTop){
