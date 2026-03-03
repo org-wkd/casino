@@ -1246,6 +1246,11 @@ ol.list li:before,
           justify-content: flex-end;
 }
 
+.header__language svg {
+  fill: white;
+  fill-opacity: 0.3;
+}
+
 .header__menu {
   overflow: hidden;
   -webkit-box-flex: 1;

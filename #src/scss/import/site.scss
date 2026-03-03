@@ -50,6 +50,10 @@
             justify-content: flex-end;
             padding: 16px;
         }
+        svg{
+            fill: white;
+            fill-opacity: 0.3;
+        }
     }
     &__menu {
         overflow: hidden;
