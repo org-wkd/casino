@@ -802,7 +802,7 @@ html[dir=rtl] .rotate-270 {
 
 .btn-dropdown {
   background-color: transparent;
-  color: #fff;
+  color: var(--color-opposite);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1595,7 +1595,7 @@ ol.list li:before,
   gap: 16px;
   margin: 0;
   padding: 16px 0;
-  color: white;
+  color: var(--color-opposite);
   font-weight: 700;
   font-size: 30px;
 }
