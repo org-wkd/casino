@@ -424,6 +424,9 @@
             position: static;
             min-height: auto;
         }
+        @media (max-width: 892px) {
+            left: 0;
+        }
     }
     &__flag{
         aspect-ratio: 1/1;

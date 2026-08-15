@@ -150,24 +150,26 @@ if (globalMap.length === 1) {
 (function ibgObserver() {
     const elements = document.querySelectorAll('.js-ibg-gameCard');
 
+    const setCardBg = (el) => {
+        const img = el.closest('.gameCard')?.querySelector('img');
+        if (!img) return;
+
+        // currentSrc содержит актуальный URL из <picture>, а src — fallback
+        const bgUrl = img.currentSrc || img.src;
+        el.style.backgroundImage = `url("${bgUrl}")`;
+    };
+
     if (!('IntersectionObserver' in window)) {
-        elements.forEach(el => {
-            const bgUrl = el.closest('.gameCard').querySelector('img').src;
-            el.style.backgroundImage = `url(${bgUrl})`;
-        });
+        elements.forEach(setCardBg);
         return;
     }
 
-    const observer = new IntersectionObserver(entries => {
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (!entry.isIntersecting) return;
 
-            const el = entry.target;
-            const bgUrl = el.closest('.gameCard').querySelector('img').src;
-
-            el.style.backgroundImage = `url(${bgUrl})`;
-
-            observer.unobserve(el);
+            setCardBg(entry.target);
+            observer.unobserve(entry.target);
         });
     }, {
         rootMargin: '200px',

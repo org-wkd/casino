@@ -3259,6 +3259,12 @@ article.searchResult__item {
   }
 }
 
+@media (max-width: 892px) {
+  .firstScreen__imageWrapper {
+    left: 0;
+  }
+}
+
 @media (max-width: 840px) {
   .tabs {
     -ms-flex-wrap: wrap;
