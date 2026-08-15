@@ -277,7 +277,6 @@ if (globalMap.length === 1) {
         const img = el.closest('.gameCard')?.querySelector('img');
         if (!img) return;
 
-        // currentSrc содержит актуальный URL из <picture>, а src — fallback
         const bgUrl = img.currentSrc || img.src;
         el.style.backgroundImage = `url("${bgUrl}")`;
     };
